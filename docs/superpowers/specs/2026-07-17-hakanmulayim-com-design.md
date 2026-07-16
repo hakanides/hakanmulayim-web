@@ -68,8 +68,10 @@ dildeki karşılığına götürür.
 - **Blog:** Tarih sırasıyla yazı listesi, kategori etiketleri.
 - **Etkinlikler:** Yaklaşan / geçmiş ayrımı; tarih, yer, açıklama, varsa kayıt bağlantısı.
 - **İletişim:** Web3Forms formu (ad, e-posta, konu, mesaj), e-posta linki
-  (hakanmulaym@gmail.com), WhatsApp düğmesi (numara kullanıcıdan alınacak),
-  Calendly bağlantısı (hesap açılınca eklenecek; o zamana dek gizli tutulur).
+  (hakanmulaym@gmail.com), WhatsApp düğmesi ve Calendly bağlantısı.
+  WhatsApp numarası, Calendly adresi ve Web3Forms anahtarı Aşama 5'te kullanıcıdan
+  alınır; her biri hazır olana kadar ilgili düğme sitede gösterilmez (koşullu render).
+  Bu üçü hazır değilken iletişim sayfası yalnızca e-posta linkiyle yayında olabilir.
 
 ## 4. İçerik Mimarisi
 
@@ -111,12 +113,14 @@ public/
 - **SEO:** her sayfada `hreflang` alternatif etiketleri, otomatik sitemap
   (`@astrojs/sitemap`), Open Graph kartları, açıklama meta'ları.
 - **İletişim formu:** Web3Forms access key ile statik form; honeypot alanı ile spam koruması.
-  Anahtar hazır olana kadar form yerine e-posta/WhatsApp bağlantıları öne çıkarılır.
+  Anahtar hazır olana kadar form gösterilmez; iletişim sayfası e-posta linkiyle çalışır.
 - **Erişilebilirlik:** semantik HTML, yeterli kontrast, klavye ile gezinme.
 
 ## 6. Yayınlama Hattı ve Altyapı
 
-1. Kod GitHub deposunda (`hakanmulayim-web`, private veya public — kullanıcı tercihi).
+1. Kod GitHub deposunda (`hakanmulayim-web`). Varsayılan: **private** (taslak
+   içerikler herkese açık olmaz); kullanıcı isterse sonradan public yapılabilir.
+   Cloudflare Pages private depolarla sorunsuz çalışır.
 2. Cloudflare Pages depoya bağlanır; her push'ta otomatik build (`astro build`) ve yayın.
 3. İlk yayın `<proje>.pages.dev` adresinde doğrulanır.
 4. Özel alan adı: Cloudflare'e `hakanmulayim.com` zone'u eklenir; GoDaddy'de
