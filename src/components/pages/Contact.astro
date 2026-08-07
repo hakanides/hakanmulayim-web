@@ -1,0 +1,60 @@
+---
+import Base from '../../layouts/Base.astro';
+import { contact } from '../../config';
+import { useTranslations, type Lang } from '../../i18n/ui';
+
+interface Props { lang: Lang }
+const { lang } = Astro.props;
+const t = useTranslations(lang);
+const inputCls =
+  'w-full rounded border border-gray-300 dark:border-gray-700 bg-transparent px-3 py-2 text-sm focus:outline-none focus:border-accent';
+---
+<Base title={t('contact.title')} description={t('contact.intro')} lang={lang}>
+  <h1 class="text-3xl font-semibold">{t('contact.title')}</h1>
+  <p class="mt-2 text-gray-600 dark:text-gray-400">{t('contact.intro')}</p>
+
+  <div class="mt-6 flex flex-wrap gap-3">
+    <a href={`mailto:${contact.email}`}
+      class="px-4 py-2 rounded border border-gray-300 dark:border-gray-700 text-sm font-medium hover:border-accent">
+      ✉️ {t('contact.email')}: {contact.email}
+    </a>
+    {contact.whatsappNumber && (
+      <a href={`https://wa.me/${contact.whatsappNumber}`}
+        class="px-4 py-2 rounded border border-gray-300 dark:border-gray-700 text-sm font-medium hover:border-accent">
+        💬 {t('contact.whatsapp')}
+      </a>
+    )}
+    {contact.calendlyUrl && (
+      <a href={contact.calendlyUrl}
+        class="px-4 py-2 rounded border border-gray-300 dark:border-gray-700 text-sm font-medium hover:border-accent">
+        📅 {t('contact.calendly')}
+      </a>
+    )}
+  </div>
+
+  {contact.web3formsKey && (
+    <form action="https://api.web3forms.com/submit" method="POST" class="mt-10 max-w-xl space-y-4">
+      <input type="hidden" name="access_key" value={contact.web3formsKey} />
+      <input type="checkbox" name="botcheck" tabindex="-1" autocomplete="off" class="hidden" style="display:none" />
+      <div>
+        <label for="name" class="block text-sm font-medium mb-1">{t('contact.form.name')}</label>
+        <input id="name" name="name" type="text" required class={inputCls} />
+      </div>
+      <div>
+        <label for="email" class="block text-sm font-medium mb-1">{t('contact.form.email')}</label>
+        <input id="email" name="email" type="email" required class={inputCls} />
+      </div>
+      <div>
+        <label for="subject" class="block text-sm font-medium mb-1">{t('contact.form.subject')}</label>
+        <input id="subject" name="subject" type="text" required class={inputCls} />
+      </div>
+      <div>
+        <label for="message" class="block text-sm font-medium mb-1">{t('contact.form.message')}</label>
+        <textarea id="message" name="message" rows="5" required class={inputCls}></textarea>
+      </div>
+      <button type="submit" class="px-5 py-2 rounded bg-accent text-white text-sm font-medium hover:bg-accent-light">
+        {t('contact.form.send')}
+      </button>
+    </form>
+  )}
+</Base>
