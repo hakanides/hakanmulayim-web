@@ -1,0 +1,51 @@
+---
+import { getCollection } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+import NoteCard from '../NoteCard.astro';
+import { byLocale, sortByDateDesc } from '../../lib/content';
+import { NOTE_CATEGORIES } from '../../lib/categories';
+import { useTranslations, type Lang } from '../../i18n/ui';
+
+interface Props { lang: Lang }
+const { lang } = Astro.props;
+const t = useTranslations(lang);
+
+const notes = sortByDateDesc(
+  byLocale(await getCollection('notes', ({ data }) => !data.draft), lang)
+);
+---
+<Base title={t('notes.title')} description={t('notes.intro')} lang={lang}>
+  <h1 class="text-3xl font-semibold">{t('notes.title')}</h1>
+  <p class="mt-2 text-gray-600 dark:text-gray-400">{t('notes.intro')}</p>
+
+  <div class="mt-6 flex flex-wrap gap-2" role="group" aria-label="Kategori filtresi">
+    <button data-filter="all" aria-pressed="true"
+      class="px-3 py-1 rounded-full border border-gray-300 dark:border-gray-700 text-xs font-medium aria-[pressed=true]:bg-accent aria-[pressed=true]:text-white aria-[pressed=true]:border-accent">
+      {t('notes.all')}
+    </button>
+    {NOTE_CATEGORIES.map((cat) => (
+      <button data-filter={cat} aria-pressed="false"
+        class="px-3 py-1 rounded-full border border-gray-300 dark:border-gray-700 text-xs font-medium aria-[pressed=true]:bg-accent aria-[pressed=true]:text-white aria-[pressed=true]:border-accent">
+        {cat}
+      </button>
+    ))}
+  </div>
+
+  <div class="mt-4">
+    {notes.length === 0 && <p class="text-gray-500">{t('notes.empty')}</p>}
+    {notes.map((entry) => <NoteCard entry={entry} lang={lang} />)}
+  </div>
+
+  <script>
+    const buttons = document.querySelectorAll<HTMLButtonElement>('[data-filter]');
+    buttons.forEach((btn) => {
+      btn.addEventListener('click', () => {
+        const cat = btn.dataset.filter;
+        buttons.forEach((b) => b.setAttribute('aria-pressed', String(b === btn)));
+        document.querySelectorAll<HTMLElement>('[data-note-card]').forEach((card) => {
+          card.classList.toggle('hidden', cat !== 'all' && card.dataset.category !== cat);
+        });
+      });
+    });
+  </script>
+</Base>
