@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://hakanmulayim.com/sitemap-index.xml
