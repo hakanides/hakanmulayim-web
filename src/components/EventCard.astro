@@ -1,0 +1,22 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import { formatDate } from '../lib/date';
+import { useTranslations, type Lang } from '../i18n/ui';
+
+interface Props { entry: CollectionEntry<'events'>; lang: Lang }
+const { entry, lang } = Astro.props;
+const t = useTranslations(lang);
+---
+<article class="py-4 border-b border-gray-100 dark:border-gray-800">
+  <div class="flex flex-wrap items-center gap-2 text-xs text-gray-500 dark:text-gray-400">
+    <time datetime={entry.data.eventDate.toISOString()}>{formatDate(entry.data.eventDate, lang)}</time>
+    {entry.data.location && <span>· {entry.data.location}</span>}
+  </div>
+  <h3 class="mt-1 text-lg font-semibold">{entry.data.title}</h3>
+  <p class="mt-1 text-sm text-gray-600 dark:text-gray-400">{entry.data.description}</p>
+  {entry.data.registrationUrl && (
+    <a href={entry.data.registrationUrl} class="inline-block mt-2 text-sm text-accent underline">
+      {t('events.register')}
+    </a>
+  )}
+</article>

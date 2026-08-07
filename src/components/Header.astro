@@ -1,0 +1,54 @@
+---
+import { useTranslations, type Lang } from '../i18n/ui';
+
+interface Props { lang: Lang; altPath: string }
+const { lang, altPath } = Astro.props;
+const t = useTranslations(lang);
+
+const links =
+  lang === 'tr'
+    ? [
+        ['/', t('nav.home')],
+        ['/hakkimda', t('nav.about')],
+        ['/cv', t('nav.cv')],
+        ['/ders-notlari', t('nav.notes')],
+        ['/blog', t('nav.blog')],
+        ['/etkinlikler', t('nav.events')],
+        ['/iletisim', t('nav.contact')],
+      ]
+    : [
+        ['/en/', t('nav.home')],
+        ['/en/about', t('nav.about')],
+        ['/en/cv', t('nav.cv')],
+        ['/en/notes', t('nav.notes')],
+        ['/en/blog', t('nav.blog')],
+        ['/en/events', t('nav.events')],
+        ['/en/contact', t('nav.contact')],
+      ];
+const current = Astro.url.pathname.replace(/\/$/, '') || '/';
+---
+<header class="border-b border-gray-200 dark:border-gray-800">
+  <div class="max-w-3xl mx-auto px-5 py-4 flex flex-wrap items-center gap-x-6 gap-y-2">
+    <a href={lang === 'tr' ? '/' : '/en/'} class="font-serif text-lg font-semibold text-accent dark:text-gray-100">
+      Hakan Mülayim
+    </a>
+    <nav class="flex flex-wrap gap-x-4 gap-y-1 text-sm ml-auto items-center">
+      {links.map(([href, label]) => (
+        <a
+          href={href}
+          aria-current={current === (href as string).replace(/\/$/, '') || (href === '/' && current === '/') ? 'page' : undefined}
+          class="hover:text-accent dark:hover:text-white aria-[current=page]:font-semibold aria-[current=page]:text-accent dark:aria-[current=page]:text-white"
+        >
+          {label}
+        </a>
+      ))}
+      <a
+        href={altPath}
+        class="ml-2 px-2 py-0.5 border border-gray-300 dark:border-gray-700 rounded text-xs font-medium hover:border-accent"
+        aria-label={lang === 'tr' ? 'Switch to English' : 'Türkçeye geç'}
+      >
+        {lang === 'tr' ? 'EN' : 'TR'}
+      </a>
+    </nav>
+  </div>
+</header>
