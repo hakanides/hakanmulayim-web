@@ -1,0 +1,38 @@
+---
+import Base from '../../layouts/Base.astro';
+import { useTranslations, type Lang } from '../../i18n/ui';
+import { cvPdfUrl } from '../../config';
+
+interface Props { lang: Lang }
+const { lang } = Astro.props;
+const t = useTranslations(lang);
+---
+<Base title={t('cv.title')} description={t('site.description')} lang={lang}>
+  <div class="flex items-baseline justify-between">
+    <h1 class="text-3xl font-semibold">{t('cv.title')}</h1>
+    {cvPdfUrl && (
+      <a href={cvPdfUrl} class="text-sm px-3 py-1.5 rounded bg-accent text-white hover:bg-accent-light">
+        {t('cv.download')}
+      </a>
+    )}
+  </div>
+  <div class="prose-body mt-6">
+    <p><em>{lang === 'tr'
+      ? '(Örnek CV — gerçek bilgiler eklenene kadar yer tutucudur.)'
+      : '(Sample CV — placeholder until real details are added.)'}</em></p>
+    <h2>{t('cv.education')}</h2>
+    <ul>
+      <li>{lang === 'tr' ? 'Doktora / Yüksek Lisans — Alan, Üniversite (yıl)' : 'PhD / MSc — Field, University (year)'}</li>
+      <li>{lang === 'tr' ? 'Lisans — Alan, Üniversite (yıl)' : 'BSc — Field, University (year)'}</li>
+    </ul>
+    <h2>{t('cv.experience')}</h2>
+    <ul>
+      <li>{lang === 'tr' ? 'Eğitmen — Matematik & Ekonomi (AP, IB, SAT, TMUA)' : 'Educator — Mathematics & Economics (AP, IB, SAT, TMUA)'}</li>
+      <li>{lang === 'tr' ? 'Ekonomi Olimpiyatı eğitmenliği' : 'Economics Olympiad coaching'}</li>
+    </ul>
+    <h2>{t('cv.publications')}</h2>
+    <ul>
+      <li>{lang === 'tr' ? '(Yayınlar eklenecek)' : '(Publications to be added)'}</li>
+    </ul>
+  </div>
+</Base>
