@@ -1,0 +1,30 @@
+---
+import { render, type CollectionEntry } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+import { formatDate } from '../../lib/date';
+import { useTranslations, type Lang } from '../../i18n/ui';
+import 'katex/dist/katex.min.css';
+
+interface Props { entry: CollectionEntry<'blog'>; lang: Lang; altPath?: string }
+const { entry, lang, altPath } = Astro.props;
+const t = useTranslations(lang);
+const { Content } = await render(entry);
+const backHref = lang === 'tr' ? '/blog' : '/en/blog';
+---
+<Base title={entry.data.title} description={entry.data.description} lang={lang} altPath={altPath}>
+  <a href={backHref} class="text-sm text-accent underline">← {t('blog.title')}</a>
+  <time class="block mt-4 text-xs text-gray-500 dark:text-gray-400" datetime={entry.data.date.toISOString()}>
+    {formatDate(entry.data.date, lang)}
+  </time>
+  <h1 class="mt-2 text-3xl font-semibold">{entry.data.title}</h1>
+  {entry.data.tags.length > 0 && (
+    <ul class="mt-2 flex flex-wrap gap-2">
+      {entry.data.tags.map((tag) => (
+        <li class="px-2 py-0.5 rounded-full border border-gray-300 dark:border-gray-700 text-xs">{tag}</li>
+      ))}
+    </ul>
+  )}
+  <div class="prose-body mt-6">
+    <Content />
+  </div>
+</Base>
