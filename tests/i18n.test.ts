@@ -22,23 +22,15 @@ describe('getLangFromUrl', () => {
 });
 
 describe('getAlternatePath', () => {
-  it('maps tr pages to en counterparts', () => {
+  it('maps home both ways', () => {
     expect(getAlternatePath('/')).toBe('/en/');
-    expect(getAlternatePath('/hakkimda')).toBe('/en/about');
-    expect(getAlternatePath('/ders-notlari')).toBe('/en/notes');
-    expect(getAlternatePath('/iletisim/')).toBe('/en/contact'); // sondaki / normalize
-  });
-  it('maps en pages back to tr', () => {
     expect(getAlternatePath('/en/')).toBe('/');
     expect(getAlternatePath('/en')).toBe('/');
-    expect(getAlternatePath('/en/events')).toBe('/etkinlikler');
   });
-  it('falls back to list page for detail routes', () => {
-    expect(getAlternatePath('/ders-notlari/limit-kavrami')).toBe('/en/notes');
-    expect(getAlternatePath('/en/blog/hello')).toBe('/blog');
-  });
-  it('falls back to home for unknown paths', () => {
-    expect(getAlternatePath('/bilinmeyen')).toBe('/en/');
-    expect(getAlternatePath('/en/unknown')).toBe('/');
+  it('sends every other path to the home of the other language', () => {
+    expect(getAlternatePath('/hakkimda')).toBe('/en/');
+    expect(getAlternatePath('/ders-notlari/limit-kavrami')).toBe('/en/');
+    expect(getAlternatePath('/en/about')).toBe('/');
+    expect(getAlternatePath('/en/blog/hello')).toBe('/');
   });
 });

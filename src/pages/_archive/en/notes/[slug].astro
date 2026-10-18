@@ -1,7 +1,7 @@
 ---
 import { getCollection } from 'astro:content';
-import NoteDetail from '../../../components/pages/NoteDetail.astro';
-import { byLocale, slugOf } from '../../../lib/content';
+import NoteDetail from '../../../../components/pages/NoteDetail.astro';
+import { byLocale, slugOf } from '../../../../lib/content';
 
 export async function getStaticPaths() {
   const all = await getCollection('notes', ({ data }) => !data.draft);
