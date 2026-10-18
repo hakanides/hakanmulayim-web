@@ -1,6 +1,6 @@
 ---
 import { getCollection } from 'astro:content';
-import Base from '../../layouts/Base.astro';
+import Page from '../../layouts/Page.astro';
 import NoteCard from '../NoteCard.astro';
 import { byLocale, sortByDateDesc } from '../../lib/content';
 import { NOTE_CATEGORIES } from '../../lib/categories';
@@ -14,18 +14,16 @@ const notes = sortByDateDesc(
   byLocale(await getCollection('notes', ({ data }) => !data.draft), lang)
 );
 ---
-<Base title={t('notes.title')} description={t('notes.intro')} lang={lang}>
-  <h1 class="text-3xl font-semibold">{t('notes.title')}</h1>
-  <p class="mt-2 text-gray-600 dark:text-gray-400">{t('notes.intro')}</p>
+<Page title={t('notes.title')} description={t('notes.intro')} lang={lang} intro={t('notes.intro')}>
 
-  <div class="mt-6 flex flex-wrap gap-2" role="group" aria-label="Kategori filtresi">
+  <div class="mt-6 flex flex-wrap gap-2" role="group" aria-label={lang === 'tr' ? 'Kategori filtresi' : 'Category filter'}>
     <button data-filter="all" aria-pressed="true"
-      class="px-3 py-1 rounded-full border border-gray-300 dark:border-gray-700 text-xs font-medium aria-[pressed=true]:bg-accent aria-[pressed=true]:text-white aria-[pressed=true]:border-accent">
+      class="px-3 py-1 border border-gray-300 dark:border-gray-700 text-xs font-medium aria-[pressed=true]:bg-ink aria-[pressed=true]:text-white aria-[pressed=true]:border-ink dark:aria-[pressed=true]:bg-white dark:aria-[pressed=true]:text-ink dark:aria-[pressed=true]:border-white">
       {t('notes.all')}
     </button>
     {NOTE_CATEGORIES.map((cat) => (
       <button data-filter={cat} aria-pressed="false"
-        class="px-3 py-1 rounded-full border border-gray-300 dark:border-gray-700 text-xs font-medium aria-[pressed=true]:bg-accent aria-[pressed=true]:text-white aria-[pressed=true]:border-accent">
+        class="px-3 py-1 border border-gray-300 dark:border-gray-700 text-xs font-medium aria-[pressed=true]:bg-ink aria-[pressed=true]:text-white aria-[pressed=true]:border-ink dark:aria-[pressed=true]:bg-white dark:aria-[pressed=true]:text-ink dark:aria-[pressed=true]:border-white">
         {cat}
       </button>
     ))}
@@ -48,4 +46,4 @@ const notes = sortByDateDesc(
       });
     });
   </script>
-</Base>
+</Page>

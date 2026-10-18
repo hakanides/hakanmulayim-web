@@ -4,6 +4,7 @@ description: "Limitin sezgisel ve formel tanımı, tek taraflı limitler ve örn
 date: 2026-07-10
 category: "AP"
 pdf: "/pdf/notes/limit-kavrami-ap-calculus.pdf"
+draft: true
 ---
 
 > Bu bir **örnek nottur**; gerçek içerik eklenene kadar yer tutucudur.

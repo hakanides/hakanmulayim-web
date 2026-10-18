@@ -1,6 +1,6 @@
 ---
 import { getCollection } from 'astro:content';
-import Base from '../../layouts/Base.astro';
+import Page from '../../layouts/Page.astro';
 import EventCard from '../EventCard.astro';
 import { byLocale, splitEvents } from '../../lib/content';
 import { useTranslations, type Lang } from '../../i18n/ui';
@@ -11,21 +11,20 @@ const t = useTranslations(lang);
 const events = byLocale(await getCollection('events', ({ data }) => !data.draft), lang);
 const { upcoming, past } = splitEvents(events, new Date());
 ---
-<Base title={t('events.title')} description={t('site.description')} lang={lang}>
-  <h1 class="text-3xl font-semibold">{t('events.title')}</h1>
+<Page title={t('events.title')} description={t('site.description')} lang={lang}>
   {upcoming.length === 0 && past.length === 0 && (
     <p class="mt-4 text-gray-500">{t('events.empty')}</p>
   )}
   {upcoming.length > 0 && (
     <section class="mt-6">
-      <h2 class="text-xl font-semibold">{t('events.upcoming')}</h2>
+      <h2 class="text-2xl">{t('events.upcoming')}</h2>
       {upcoming.map((entry) => <EventCard entry={entry} lang={lang} />)}
     </section>
   )}
   {past.length > 0 && (
     <section class="mt-8">
-      <h2 class="text-xl font-semibold">{t('events.past')}</h2>
+      <h2 class="text-2xl">{t('events.past')}</h2>
       {past.map((entry) => <EventCard entry={entry} lang={lang} />)}
     </section>
   )}
-</Base>
+</Page>

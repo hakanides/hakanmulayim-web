@@ -3,6 +3,7 @@ title: "Arz, Talep ve Esneklik (Örnek Not)"
 description: "Talep esnekliği, toplam hasılat ilişkisi ve olimpiyat düzeyi örnekler."
 date: 2026-06-28
 category: "Ekonomi"
+draft: true
 ---
 
 > Bu bir **örnek nottur**; gerçek içerik eklenene kadar yer tutucudur.

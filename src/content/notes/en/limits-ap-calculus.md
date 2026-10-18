@@ -4,6 +4,7 @@ description: "Intuitive and formal definitions of limits, one-sided limits and w
 date: 2026-07-10
 category: "AP"
 pdf: "/pdf/notes/limit-kavrami-ap-calculus.pdf"
+draft: true
 ---
 
 > This is a **sample note** — placeholder until real content is added.

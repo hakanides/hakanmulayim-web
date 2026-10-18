@@ -12,19 +12,21 @@ const { Content } = await render(entry);
 const backHref = lang === 'tr' ? '/blog' : '/en/blog';
 ---
 <Base title={entry.data.title} description={entry.data.description} lang={lang} altPath={altPath}>
-  <a href={backHref} class="text-sm text-accent underline">← {t('blog.title')}</a>
+  <main class="w-full max-w-2xl mx-auto px-5 py-12 sm:py-16">
+  <a href={backHref} class="text-sm underline underline-offset-4">← {t('blog.title')}</a>
   <time class="block mt-4 text-xs text-gray-500 dark:text-gray-400" datetime={entry.data.date.toISOString()}>
     {formatDate(entry.data.date, lang)}
   </time>
-  <h1 class="mt-2 text-3xl font-semibold">{entry.data.title}</h1>
+  <h1 class="mt-2 text-4xl">{entry.data.title}</h1>
   {entry.data.tags.length > 0 && (
     <ul class="mt-2 flex flex-wrap gap-2">
       {entry.data.tags.map((tag) => (
-        <li class="px-2 py-0.5 rounded-full border border-gray-300 dark:border-gray-700 text-xs">{tag}</li>
+        <li class="px-2 py-0.5 border border-gray-300 dark:border-gray-700 text-xs">{tag}</li>
       ))}
     </ul>
   )}
   <div class="prose-body mt-6">
     <Content />
   </div>
+  </main>
 </Base>

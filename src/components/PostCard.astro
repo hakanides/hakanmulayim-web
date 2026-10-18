@@ -8,12 +8,12 @@ interface Props { entry: CollectionEntry<'blog'>; lang: Lang }
 const { entry, lang } = Astro.props;
 const href = (lang === 'tr' ? '/blog/' : '/en/blog/') + slugOf(entry);
 ---
-<article class="py-4 border-b border-gray-100 dark:border-gray-800">
+<article class="py-4 border-b border-gray-200 dark:border-gray-800">
   <time class="text-xs text-gray-500 dark:text-gray-400" datetime={entry.data.date.toISOString()}>
     {formatDate(entry.data.date, lang)}
   </time>
-  <h3 class="mt-1 text-lg font-semibold">
-    <a href={href} class="hover:text-accent dark:hover:text-white">{entry.data.title}</a>
+  <h3 class="mt-1 font-serif text-xl">
+    <a href={href} class="hover:underline underline-offset-4">{entry.data.title}</a>
   </h3>
   <p class="mt-1 text-sm text-gray-600 dark:text-gray-400">{entry.data.description}</p>
 </article>

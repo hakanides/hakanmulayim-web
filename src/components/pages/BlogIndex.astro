@@ -1,6 +1,6 @@
 ---
 import { getCollection } from 'astro:content';
-import Base from '../../layouts/Base.astro';
+import Page from '../../layouts/Page.astro';
 import PostCard from '../PostCard.astro';
 import { byLocale, sortByDateDesc } from '../../lib/content';
 import { useTranslations, type Lang } from '../../i18n/ui';
@@ -12,11 +12,9 @@ const posts = sortByDateDesc(
   byLocale(await getCollection('blog', ({ data }) => !data.draft), lang)
 );
 ---
-<Base title={t('blog.title')} description={t('blog.intro')} lang={lang}>
-  <h1 class="text-3xl font-semibold">{t('blog.title')}</h1>
-  <p class="mt-2 text-gray-600 dark:text-gray-400">{t('blog.intro')}</p>
+<Page title={t('blog.title')} description={t('blog.intro')} lang={lang} intro={t('blog.intro')}>
   <div class="mt-4">
     {posts.length === 0 && <p class="text-gray-500">{t('blog.empty')}</p>}
     {posts.map((entry) => <PostCard entry={entry} lang={lang} />)}
   </div>
-</Base>
+</Page>

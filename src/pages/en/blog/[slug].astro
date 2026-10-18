@@ -5,16 +5,16 @@ import { byLocale, slugOf } from '../../../lib/content';
 
 export async function getStaticPaths() {
   const all = await getCollection('blog', ({ data }) => !data.draft);
-  const tr = byLocale(all, 'tr');
-  const enSlugs = new Set(byLocale(all, 'en').map(slugOf));
-  return tr.map((entry) => {
+  const en = byLocale(all, 'en');
+  const trSlugs = new Set(byLocale(all, 'tr').map(slugOf));
+  return en.map((entry) => {
     const slug = slugOf(entry);
     return {
       params: { slug },
-      props: { entry, altPath: enSlugs.has(slug) ? `/en/blog/${slug}` : undefined },
+      props: { entry, altPath: trSlugs.has(slug) ? `/blog/${slug}` : undefined },
     };
   });
 }
 const { entry, altPath } = Astro.props;
 ---
-<BlogPost entry={entry} lang="tr" altPath={altPath} />
+<BlogPost entry={entry} lang="en" altPath={altPath} />

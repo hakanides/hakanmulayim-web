@@ -3,6 +3,7 @@ title: "TMUA Mantık ve İspat — Örnek Sorular (Örnek Not)"
 description: "TMUA Paper 2 tarzı mantık, gereklilik-yeterlilik ve ispat değerlendirme soruları."
 date: 2026-07-05
 category: "TMUA"
+draft: true
 ---
 
 > Bu bir **örnek nottur**; gerçek içerik eklenene kadar yer tutucudur.

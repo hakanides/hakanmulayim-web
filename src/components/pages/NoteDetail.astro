@@ -12,21 +12,23 @@ const { Content } = await render(entry);
 const backHref = lang === 'tr' ? '/ders-notlari' : '/en/notes';
 ---
 <Base title={entry.data.title} description={entry.data.description} lang={lang} altPath={altPath}>
-  <a href={backHref} class="text-sm text-accent underline">← {t('notes.title')}</a>
+  <main class="w-full max-w-2xl mx-auto px-5 py-12 sm:py-16">
+  <a href={backHref} class="text-sm underline underline-offset-4">← {t('notes.title')}</a>
   <div class="mt-4 flex flex-wrap items-center gap-2 text-xs text-gray-500 dark:text-gray-400">
-    <span class="px-1.5 py-0.5 rounded bg-accent/10 text-accent dark:bg-accent-light/20 dark:text-gray-200 font-medium">
+    <span class="px-1.5 py-0.5 border border-gray-300 dark:border-gray-700 text-xs font-medium">
       {entry.data.category}
     </span>
     <time datetime={entry.data.date.toISOString()}>{formatDate(entry.data.date, lang)}</time>
   </div>
-  <h1 class="mt-2 text-3xl font-semibold">{entry.data.title}</h1>
+  <h1 class="mt-2 text-4xl">{entry.data.title}</h1>
   {entry.data.pdf && (
     <a href={entry.data.pdf} download
-      class="inline-block mt-4 px-4 py-2 rounded bg-accent text-white text-sm font-medium hover:bg-accent-light">
+      class="mt-4 inline-block px-4 py-2 border border-ink dark:border-gray-100 text-sm font-medium hover:bg-ink hover:text-white dark:hover:bg-gray-100 dark:hover:text-ink transition-colors">
       {t('notes.download')}
     </a>
   )}
   <div class="prose-body mt-6">
     <Content />
   </div>
+  </main>
 </Base>

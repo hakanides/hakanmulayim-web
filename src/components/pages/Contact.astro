@@ -1,40 +1,24 @@
 ---
-import Base from '../../layouts/Base.astro';
-import { contact } from '../../config';
+import Page from '../../layouts/Page.astro';
+import { profile } from '../../data/profile';
 import { useTranslations, type Lang } from '../../i18n/ui';
 
 interface Props { lang: Lang }
 const { lang } = Astro.props;
 const t = useTranslations(lang);
-const inputCls =
-  'w-full rounded border border-gray-300 dark:border-gray-700 bg-transparent px-3 py-2 text-sm focus:outline-none focus:border-accent';
+const btn = 'inline-block px-4 py-2 border border-ink dark:border-gray-100 text-sm font-medium hover:bg-ink hover:text-white dark:hover:bg-gray-100 dark:hover:text-ink transition-colors';
+const inputCls = 'w-full border border-gray-300 dark:border-gray-700 bg-transparent px-3 py-2 text-sm focus:outline-none focus:border-ink dark:focus:border-white';
 ---
-<Base title={t('contact.title')} description={t('contact.intro')} lang={lang}>
-  <h1 class="text-3xl font-semibold">{t('contact.title')}</h1>
-  <p class="mt-2 text-gray-600 dark:text-gray-400">{t('contact.intro')}</p>
-
-  <div class="mt-6 flex flex-wrap gap-3">
-    <a href={`mailto:${contact.email}`}
-      class="px-4 py-2 rounded border border-gray-300 dark:border-gray-700 text-sm font-medium hover:border-accent">
-      ✉️ {t('contact.email')}: {contact.email}
-    </a>
-    {contact.whatsappNumber && (
-      <a href={`https://wa.me/${contact.whatsappNumber}`}
-        class="px-4 py-2 rounded border border-gray-300 dark:border-gray-700 text-sm font-medium hover:border-accent">
-        💬 {t('contact.whatsapp')}
-      </a>
-    )}
-    {contact.calendlyUrl && (
-      <a href={contact.calendlyUrl}
-        class="px-4 py-2 rounded border border-gray-300 dark:border-gray-700 text-sm font-medium hover:border-accent">
-        📅 {t('contact.calendly')}
-      </a>
-    )}
+<Page title={t('contact.title')} description={t('contact.intro')} lang={lang} intro={t('contact.intro')}>
+  <div class="mt-8 flex flex-wrap gap-3">
+    <a href={`mailto:${profile.email}`} class={btn}>{t('contact.email')}: {profile.email}</a>
+    {profile.whatsappNumber && <a href={`https://wa.me/${profile.whatsappNumber}`} class={btn}>{t('contact.whatsapp')}</a>}
+    {profile.calendlyUrl && <a href={profile.calendlyUrl} class={btn}>{t('contact.calendly')}</a>}
   </div>
 
-  {contact.web3formsKey && (
+  {profile.web3formsKey && (
     <form action="https://api.web3forms.com/submit" method="POST" class="mt-10 max-w-xl space-y-4">
-      <input type="hidden" name="access_key" value={contact.web3formsKey} />
+      <input type="hidden" name="access_key" value={profile.web3formsKey} />
       <input type="checkbox" name="botcheck" tabindex="-1" autocomplete="off" class="hidden" style="display:none" />
       <div>
         <label for="name" class="block text-sm font-medium mb-1">{t('contact.form.name')}</label>
@@ -52,9 +36,7 @@ const inputCls =
         <label for="message" class="block text-sm font-medium mb-1">{t('contact.form.message')}</label>
         <textarea id="message" name="message" rows="5" required class={inputCls}></textarea>
       </div>
-      <button type="submit" class="px-5 py-2 rounded bg-accent text-white text-sm font-medium hover:bg-accent-light">
-        {t('contact.form.send')}
-      </button>
+      <button type="submit" class={btn}>{t('contact.form.send')}</button>
     </form>
   )}
-</Base>
+</Page>
