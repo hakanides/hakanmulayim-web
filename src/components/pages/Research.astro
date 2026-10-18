@@ -1,0 +1,48 @@
+---
+import Page from '../../layouts/Page.astro';
+import { research } from '../../data/research';
+import { useTranslations, type Lang } from '../../i18n/ui';
+
+interface Props { lang: Lang }
+const { lang } = Astro.props;
+const t = useTranslations(lang);
+const r = research[lang];
+---
+<Page title={t('research.title')} description={r.intro} lang={lang} intro={r.intro}>
+  <section class="mt-8">
+    <h2 class="text-xs uppercase tracking-wider text-gray-500 dark:text-gray-400">{r.interestsHeading}</h2>
+    <ul class="mt-2 flex flex-wrap gap-2">
+      {r.interests.map((i) => <li class="px-2.5 py-1 border border-gray-300 dark:border-gray-700 text-sm">{i}</li>)}
+    </ul>
+  </section>
+
+  <section class="mt-12">
+    <ul class="space-y-8">
+      {r.items.map((it) => (
+        <li>
+          <p class="text-xs uppercase tracking-wider text-gray-500 dark:text-gray-400">{it.kind}</p>
+          <p class="mt-1 font-serif text-xl">{it.title}</p>
+          <p class="text-sm text-gray-600 dark:text-gray-300">{it.with} · {it.venue}</p>
+          {it.note && <p class="mt-2 text-sm leading-relaxed text-gray-700 dark:text-gray-300">{it.note}</p>}
+          {it.pdf && <a href={it.pdf} class="inline-block mt-2 text-sm underline underline-offset-4">PDF</a>}
+        </li>
+      ))}
+    </ul>
+  </section>
+
+  <section class="mt-14">
+    <h2 class="text-2xl">{r.mathHeading}</h2>
+    <p class="mt-2 text-gray-600 dark:text-gray-400">{r.mathIntro}</p>
+    <ul class="mt-6 space-y-5">
+      {r.math.map((m) => (
+        <li class="sm:grid sm:grid-cols-[8.5rem_1fr] sm:gap-4">
+          <p class="text-xs sm:text-sm text-gray-500 dark:text-gray-400 sm:pt-0.5">{m.period}</p>
+          <div>
+            <p class="font-medium">{m.title}</p>
+            <p class="text-sm text-gray-700 dark:text-gray-300">{m.detail}</p>
+          </div>
+        </li>
+      ))}
+    </ul>
+  </section>
+</Page>

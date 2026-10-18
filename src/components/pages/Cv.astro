@@ -1,38 +1,52 @@
 ---
-import Base from '../../layouts/Base.astro';
+import Page from '../../layouts/Page.astro';
+import { cv } from '../../data/cv';
+import { profile } from '../../data/profile';
 import { useTranslations, type Lang } from '../../i18n/ui';
-import { cvPdfUrl } from '../../config';
 
 interface Props { lang: Lang }
 const { lang } = Astro.props;
 const t = useTranslations(lang);
+const c = cv[lang];
 ---
-<Base title={t('cv.title')} description={t('site.description')} lang={lang}>
-  <div class="flex items-baseline justify-between">
-    <h1 class="text-3xl font-semibold">{t('cv.title')}</h1>
-    {cvPdfUrl && (
-      <a href={cvPdfUrl} class="text-sm px-3 py-1.5 rounded bg-accent text-white hover:bg-accent-light">
-        {t('cv.download')}
-      </a>
-    )}
-  </div>
-  <div class="prose-body mt-6">
-    <p><em>{lang === 'tr'
-      ? '(Örnek CV — gerçek bilgiler eklenene kadar yer tutucudur.)'
-      : '(Sample CV — placeholder until real details are added.)'}</em></p>
-    <h2>{t('cv.education')}</h2>
-    <ul>
-      <li>{lang === 'tr' ? 'Doktora / Yüksek Lisans — Alan, Üniversite (yıl)' : 'PhD / MSc — Field, University (year)'}</li>
-      <li>{lang === 'tr' ? 'Lisans — Alan, Üniversite (yıl)' : 'BSc — Field, University (year)'}</li>
-    </ul>
-    <h2>{t('cv.experience')}</h2>
-    <ul>
-      <li>{lang === 'tr' ? 'Eğitmen — Matematik & Ekonomi (AP, IB, SAT, TMUA)' : 'Educator — Mathematics & Economics (AP, IB, SAT, TMUA)'}</li>
-      <li>{lang === 'tr' ? 'Ekonomi Olimpiyatı eğitmenliği' : 'Economics Olympiad coaching'}</li>
-    </ul>
-    <h2>{t('cv.publications')}</h2>
-    <ul>
-      <li>{lang === 'tr' ? '(Yayınlar eklenecek)' : '(Publications to be added)'}</li>
-    </ul>
-  </div>
-</Base>
+<Page title={t('cv.title')} description={t('site.description')} lang={lang}>
+  {profile.cvPdfUrl && (
+    <a href={profile.cvPdfUrl} class="inline-block mt-5 px-4 py-2 border border-ink dark:border-gray-100 text-sm font-medium hover:bg-ink hover:text-white dark:hover:bg-gray-100 dark:hover:text-ink transition-colors">
+      {t('cv.download')}
+    </a>
+  )}
+
+  {c.sections.map((s) => (
+    <section class="mt-12">
+      <h2 class="text-2xl mb-5">{s.heading}</h2>
+      <ul class="space-y-5">
+        {s.entries.map((e) => (
+          <li class="sm:grid sm:grid-cols-[8.5rem_1fr] sm:gap-4">
+            <p class="text-xs sm:text-sm text-gray-500 dark:text-gray-400 sm:pt-0.5">{e.period}</p>
+            <div>
+              <p class="font-medium">{e.title}</p>
+              {e.org && <p class="text-sm text-gray-600 dark:text-gray-300">{e.org}</p>}
+              {e.details && (
+                <ul class="mt-1.5 space-y-1 text-sm text-gray-700 dark:text-gray-300 list-disc pl-5">
+                  {e.details.map((d) => <li>{d}</li>)}
+                </ul>
+              )}
+            </div>
+          </li>
+        ))}
+      </ul>
+    </section>
+  ))}
+
+  <section class="mt-12">
+    <h2 class="text-2xl mb-5">{c.skillsHeading}</h2>
+    <dl class="space-y-3">
+      {c.skills.map((s) => (
+        <div class="sm:grid sm:grid-cols-[8.5rem_1fr] sm:gap-4">
+          <dt class="text-sm text-gray-500 dark:text-gray-400">{s.label}</dt>
+          <dd class="text-sm">{s.value}</dd>
+        </div>
+      ))}
+    </dl>
+  </section>
+</Page>
