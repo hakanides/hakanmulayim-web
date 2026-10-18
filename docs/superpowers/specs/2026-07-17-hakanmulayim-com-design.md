@@ -1,3 +1,5 @@
+> **Not (2026-10-18):** Bu tasarım yayına alınmadan `2026-10-18-kartvizit-design.md` ile değiştirildi. Sayfalar `src/pages/_archive/` altında duruyor.
+
 # hakanmulayim.com — Kişisel Site Tasarım Dokümanı (Spec)
 
 **Tarih:** 2026-07-17
