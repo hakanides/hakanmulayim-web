@@ -1,0 +1,74 @@
+---
+import Base from '../../layouts/Base.astro';
+import LangToggle from '../LangToggle.astro';
+import ProfileIcon from '../ProfileIcon.astro';
+import { profile, visibleProfiles } from '../../data/profile';
+import { getAlternatePath } from '../../i18n/routes';
+import type { Lang } from '../../i18n/ui';
+
+interface Props { lang: Lang }
+const { lang } = Astro.props;
+const c = profile[lang];
+const altPath = getAlternatePath(Astro.url.pathname);
+const links = visibleProfiles(profile);
+const year = new Date().getFullYear();
+const heroStyle = profile.heroImage ? `background-image:url('${profile.heroImage}')` : undefined;
+---
+<Base title="Hakan Mülayim" description={c.description} lang={lang} altPath={altPath}>
+  <header class="relative min-h-svh flex flex-col items-center justify-center text-center bg-ink bg-cover bg-center text-white px-5" style={heroStyle}>
+    {profile.heroImage && <div class="absolute inset-0 bg-black/55" aria-hidden="true"></div>}
+    <LangToggle lang={lang} altPath={altPath} />
+    <div class="relative">
+      <h1 class="text-5xl sm:text-6xl md:text-7xl font-normal tracking-tight">{profile.name}</h1>
+      <p class="mt-5 text-sm sm:text-base text-white/80 max-w-xl mx-auto">{c.tagline}</p>
+    </div>
+    <a href="#bio" class="absolute bottom-8 text-white/60 hover:text-white" aria-label={c.scrollHint}>
+      <svg viewBox="0 0 24 24" class="size-7" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+    </a>
+  </header>
+
+  <main class="max-w-2xl mx-auto px-5">
+    <section id="bio" class="py-16 sm:py-20 space-y-6 text-[1.05rem] leading-[1.8] text-justify">
+      {c.bio.map((p) => <p>{p}</p>)}
+    </section>
+
+    <section class="pb-16 sm:pb-20">
+      <h2 class="text-2xl mb-6">{c.research.heading}</h2>
+      <ul class="space-y-6">
+        {c.research.items.map((r) => (
+          <li>
+            <p class="text-xs uppercase tracking-wider text-gray-500 dark:text-gray-400">{r.kind}</p>
+            <p class="mt-1 font-serif text-lg">{r.title}</p>
+            <p class="text-sm text-gray-600 dark:text-gray-300">{r.with} · {r.venue}</p>
+            {r.note && <p class="mt-2 text-sm leading-relaxed text-gray-700 dark:text-gray-300">{r.note}</p>}
+          </li>
+        ))}
+      </ul>
+      {profile.cvPdfUrl && (
+        <a href={profile.cvPdfUrl} class="inline-block mt-8 px-4 py-2 border border-ink dark:border-gray-100 text-sm font-medium hover:bg-ink hover:text-white dark:hover:bg-gray-100 dark:hover:text-ink transition-colors">
+          {c.cvLabel}
+        </a>
+      )}
+    </section>
+
+    {profile.portrait && (
+      <section class="pb-16 sm:pb-20 flex justify-center">
+        <img src={profile.portrait} alt="Hakan Mülayim" class="max-w-xs w-full grayscale" loading="lazy" />
+      </section>
+    )}
+  </main>
+
+  <footer class="border-t border-gray-200 dark:border-gray-800">
+    <div class="max-w-2xl mx-auto px-5 py-8 flex flex-col items-center gap-4 text-sm">
+      <a href={`mailto:${profile.email}`} class="underline underline-offset-4">{profile.email}</a>
+      {links.length > 0 && (
+        <ul class="flex gap-5">
+          {links.map((l) => (
+            <li><a href={l.url} class="text-gray-600 hover:text-ink dark:text-gray-400 dark:hover:text-white" rel="me noopener" target="_blank"><ProfileIcon name={l.key} /></a></li>
+          ))}
+        </ul>
+      )}
+      <span class="text-gray-500 dark:text-gray-400">© {year} Hakan Mülayim</span>
+    </div>
+  </footer>
+</Base>
