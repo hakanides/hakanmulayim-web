@@ -24,7 +24,7 @@ export const profile: Profile = {
   name: 'hakan mülayim',
   email: 'hakan.mulayim@sabanciuniv.edu',
   cvPdfUrl: '',
-  heroImage: '',
+  heroImage: '/img/hero.jpg',
   portrait: '',
   profiles: { linkedin: '', orcid: '', scholar: '', github: '' },
 
