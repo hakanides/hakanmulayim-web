@@ -17,13 +17,13 @@ const { upcoming, past } = splitEvents(events, new Date());
   )}
   {upcoming.length > 0 && (
     <section class="mt-6">
-      <h2 class="text-2xl">{t('events.upcoming')}</h2>
+      <h2 class="section-title">{t('events.upcoming')}</h2>
       {upcoming.map((entry) => <EventCard entry={entry} lang={lang} />)}
     </section>
   )}
   {past.length > 0 && (
     <section class="mt-8">
-      <h2 class="text-2xl">{t('events.past')}</h2>
+      <h2 class="section-title">{t('events.past')}</h2>
       {past.map((entry) => <EventCard entry={entry} lang={lang} />)}
     </section>
   )}

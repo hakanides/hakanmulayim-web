@@ -11,12 +11,12 @@ const contactHref = lang === 'tr' ? '/iletisim' : '/en/contact';
 ---
 <Page title={t('teaching.title')} description={d.intro} lang={lang} intro={d.intro}>
   <section class="mt-10">
-    <h2 class="text-2xl">{d.approachHeading}</h2>
+    <h2 class="section-title">{d.approachHeading}</h2>
     <p class="mt-3 leading-relaxed">{d.approach}</p>
   </section>
 
   <section class="mt-12">
-    <h2 class="text-2xl mb-5">{d.universityHeading}</h2>
+    <h2 class="section-title">{d.universityHeading}</h2>
     <ul class="space-y-5">
       {d.university.map((u) => (
         <li class="sm:grid sm:grid-cols-[8.5rem_1fr] sm:gap-4">
@@ -28,7 +28,7 @@ const contactHref = lang === 'tr' ? '/iletisim' : '/en/contact';
   </section>
 
   <section class="mt-12">
-    <h2 class="text-2xl mb-5">{d.villageHeading}</h2>
+    <h2 class="section-title">{d.villageHeading}</h2>
     <ul class="space-y-5">
       {d.village.map((v) => (
         <li class="sm:grid sm:grid-cols-[8.5rem_1fr] sm:gap-4">
@@ -40,7 +40,7 @@ const contactHref = lang === 'tr' ? '/iletisim' : '/en/contact';
   </section>
 
   <section class="mt-12">
-    <h2 class="text-2xl">{d.examsHeading}</h2>
+    <h2 class="section-title">{d.examsHeading}</h2>
     <p class="mt-2 text-gray-600 dark:text-gray-400">{d.examsIntro}</p>
     <div class="mt-5 grid gap-6 sm:grid-cols-2">
       {d.exams.map((g) => (

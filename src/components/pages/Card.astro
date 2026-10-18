@@ -10,7 +10,7 @@ const c = profile[lang];
 const altPath = getAlternatePath(Astro.url.pathname);
 const heroStyle = profile.heroImage ? `background-image:url('${profile.heroImage}')` : undefined;
 ---
-<Base title="Hakan Mülayim" description={c.description} lang={lang} altPath={altPath} overlayHeader>
+<Base title="Hakan Mülayim" description={c.description} lang={lang} altPath={altPath}>
   <header class="relative min-h-svh flex flex-col items-center justify-center text-center bg-ink bg-cover bg-center text-white px-5" style={heroStyle}>
     {profile.heroImage && <div class="absolute inset-0 bg-black/55" aria-hidden="true"></div>}
     <div class="relative">
@@ -27,13 +27,14 @@ const heroStyle = profile.heroImage ? `background-image:url('${profile.heroImage
       {c.bio.map((p) => <p>{p}</p>)}
     </section>
 
-    {profile.cvPdfUrl && (
-      <section class="pb-16 sm:pb-20">
-        <a href={profile.cvPdfUrl} class="inline-block px-4 py-2 border border-ink dark:border-gray-100 text-sm font-medium hover:bg-ink hover:text-white dark:hover:bg-gray-100 dark:hover:text-ink transition-colors">
-          {c.cvLabel}
+    <section class="pb-16 sm:pb-20 grid gap-4 sm:grid-cols-3">
+      {c.links.map((l) => (
+        <a href={l.href} class="group block border border-gray-200 dark:border-gray-800 p-5 hover:border-ink dark:hover:border-gray-100 transition-colors">
+          <h2 class="font-serif text-xl group-hover:underline underline-offset-4">{l.title}</h2>
+          <p class="mt-2 text-sm text-gray-600 dark:text-gray-400 leading-relaxed">{l.text}</p>
         </a>
-      </section>
-    )}
+      ))}
+    </section>
 
     {profile.portrait && (
       <section class="pb-16 sm:pb-20 flex justify-center">

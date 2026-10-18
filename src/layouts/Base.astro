@@ -10,10 +10,8 @@ interface Props {
   description: string;
   lang: Lang;
   altPath?: string;
-  /** Ana sayfa: menü hero fotoğrafının üstüne şeffaf biner */
-  overlayHeader?: boolean;
 }
-const { title, description, lang, altPath, overlayHeader = false } = Astro.props;
+const { title, description, lang, altPath } = Astro.props;
 
 const path = Astro.url.pathname;
 const alternate = altPath ?? getAlternatePath(path);
@@ -42,7 +40,7 @@ const pageTitle = title === 'Hakan Mülayim' ? title : `${title} — Hakan Müla
   </head>
   <body class="min-h-screen flex flex-col bg-paper text-ink dark:bg-ink dark:text-gray-100 antialiased">
     <div class="relative flex-1 flex flex-col">
-      <Header lang={lang} altPath={alternate} overlay={overlayHeader} />
+      <Header lang={lang} altPath={alternate} />
       <slot />
     </div>
     <Footer />

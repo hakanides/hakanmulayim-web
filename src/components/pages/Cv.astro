@@ -18,7 +18,7 @@ const c = cv[lang];
 
   {c.sections.map((s) => (
     <section class="mt-12">
-      <h2 class="text-2xl mb-5">{s.heading}</h2>
+      <h2 class="section-title">{s.heading}</h2>
       <ul class="space-y-5">
         {s.entries.map((e) => (
           <li class="sm:grid sm:grid-cols-[8.5rem_1fr] sm:gap-4">
@@ -39,7 +39,7 @@ const c = cv[lang];
   ))}
 
   <section class="mt-12">
-    <h2 class="text-2xl mb-5">{c.skillsHeading}</h2>
+    <h2 class="section-title">{c.skillsHeading}</h2>
     <dl class="space-y-3">
       {c.skills.map((s) => (
         <div class="sm:grid sm:grid-cols-[8.5rem_1fr] sm:gap-4">

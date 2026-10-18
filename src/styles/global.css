@@ -20,3 +20,6 @@ h1, h2, h3 { font-family: var(--font-serif); }
 .prose-body a { text-decoration: underline; text-underline-offset: 3px; }
 .prose-body blockquote { border-left: 2px solid currentColor; padding-left: 1rem; opacity: .8; }
 .prose-body .katex-display { overflow-x: auto; padding-block: 0.25rem; }
+
+/* İç sayfa bölüm başlığı */
+.section-title { font-family: var(--font-serif); font-size: 1.5rem; padding-bottom: .5rem; margin-bottom: 1.25rem; border-bottom: 1px solid color-mix(in srgb, currentColor 18%, transparent); }

@@ -7,6 +7,8 @@ export interface LangContent {
   cvLabel: string;
   emailLabel: string;
   scrollHint: string;
+  /** Bio altındaki yönlendirme kartları */
+  links: { href: string; title: string; text: string }[];
 }
 
 export interface Profile {
@@ -49,6 +51,11 @@ export const profile: Profile = {
     cvLabel: 'CV (PDF)',
     emailLabel: 'E-posta',
     scrollHint: 'Aşağı kaydır',
+    links: [
+      { href: '/cv', title: 'CV', text: 'Eğitim, araştırma ve öğretim deneyimi; PDF olarak indirilebilir.' },
+      { href: '/arastirma', title: 'Araştırma', text: 'Toplu taşıma finansmanı, piyasa tasarımı ve matematik geçmişi.' },
+      { href: '/ogretim', title: 'Öğretim', text: 'Üniversite dersleri, Nesin Köyü ve AP/IB/SAT/TMUA hazırlığı.' },
+    ],
   },
 
   en: {
@@ -63,6 +70,11 @@ export const profile: Profile = {
     cvLabel: 'CV (PDF)',
     emailLabel: 'Email',
     scrollHint: 'Scroll down',
+    links: [
+      { href: '/en/cv', title: 'CV', text: 'Education, research and teaching experience; available as PDF.' },
+      { href: '/en/research', title: 'Research', text: 'Transit financing, market design and a mathematics background.' },
+      { href: '/en/teaching', title: 'Teaching', text: 'University courses, Nesin Village and AP/IB/SAT/TMUA preparation.' },
+    ],
   },
 };
 
