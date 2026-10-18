@@ -6,7 +6,6 @@ describe('profile content', () => {
     for (const lang of ['tr', 'en'] as const) {
       expect(profile[lang].tagline.length).toBeGreaterThan(10);
       expect(profile[lang].bio).toHaveLength(3);
-      expect(profile[lang].research.items).toHaveLength(2);
     }
   });
   it('uses the Sabancı email', () => {

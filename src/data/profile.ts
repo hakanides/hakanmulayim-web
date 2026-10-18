@@ -1,18 +1,9 @@
 export type ProfileKey = 'linkedin' | 'orcid' | 'scholar' | 'github';
 
-export interface ResearchItem {
-  kind: string;      // "Çalışma kağıdı" / "Working paper" / "Yüksek lisans tezi" / "M.A. thesis"
-  title: string;
-  with: string;      // ortak yazar veya danışman satırı
-  venue: string;     // dergi / kurum + yıl
-  note: string;      // bir cümle özet; boş = gösterilmez
-}
-
 export interface LangContent {
   tagline: string;
   description: string;   // <meta name="description">
   bio: string[];
-  research: { heading: string; items: ResearchItem[] };
   cvLabel: string;
   emailLabel: string;
   scrollHint: string;
@@ -46,25 +37,6 @@ export const profile: Profile = {
       "Lisans derecesini Mimar Sinan Güzel Sanatlar Üniversitesi Matematik Bölümü'nde tamamlamıştır. Lisans yıllarında Khovanov homolojisi üzerine bitirme projesi yürütmüş, Directed Reading Program Turkey kapsamında dört boyutlu topoloji çalışmış ve Galatasaray Üniversitesi'nde okuma seminerlerine katılmıştır. 2017'den bu yana Nesin Matematik Köyü programlarının bir parçasıdır; 2026 yaz programında köyde eğitmen olarak görev yapmıştır.",
       "Sabancı Üniversitesi'nde Oyunlar ve Stratejiler (ECON 201) ile İstatistiksel Modelleme (MATH 306) derslerinde asistanlık yapmıştır. Bunun yanında AP Calculus, AP Mikro/Makroekonomi, IB Matematik (AA/AI), IB Ekonomi, SAT Math ve TMUA sınavlarına hazırlanan öğrencilerle ve Ekonomi Olimpiyatı adaylarıyla çalışmaktadır.",
     ],
-    research: {
-      heading: 'Araştırma',
-      items: [
-        {
-          kind: 'Çalışma kağıdı',
-          title: 'Financing Transit Through Economic Activity',
-          with: 'Kevin Hasker ve Eren İnci ile',
-          venue: 'Transportation Research Part B: Methodological dergisine sunuldu',
-          note: 'Alışveriş yolculuklarına hizmet eden toplu taşımanın bilet ücreti ve satış vergisiyle finanse edildiği bir denge modeli; gelirin biletten vergiye kaydırılmasının refahı artırdığını ve refahı en çoklayan bilet ücretinin sıfır olduğunu gösterir.',
-        },
-        {
-          kind: 'Yüksek lisans tezi',
-          title: 'Toplu Taşımanın Optimal Finansmanı',
-          with: 'Danışman: Eren İnci',
-          venue: 'Sabancı Üniversitesi, 2027 (beklenen)',
-          note: '',
-        },
-      ],
-    },
     cvLabel: 'CV (PDF)',
     emailLabel: 'E-posta',
     scrollHint: 'Aşağı kaydır',
@@ -79,25 +51,6 @@ export const profile: Profile = {
       'He holds a B.Sc. in Mathematics from Mimar Sinan Fine Arts University. As an undergraduate he completed a graduation project on Khovanov homology, studied four-dimensional topology through the Directed Reading Program Turkey, and attended reading seminars at Galatasaray University. He has been part of the Nesin Mathematics Village programs since 2017 and was an instructor in its 2026 summer program.',
       'At Sabancı University he has served as a teaching assistant for Games and Strategies (ECON 201) and Statistical Modelling (MATH 306). He also teaches students preparing for AP Calculus, AP Micro/Macroeconomics, IB Mathematics (AA/AI), IB Economics, SAT Math and TMUA, and coaches candidates for the Economics Olympiad.',
     ],
-    research: {
-      heading: 'Research',
-      items: [
-        {
-          kind: 'Working paper',
-          title: 'Financing Transit Through Economic Activity',
-          with: 'with Kevin Hasker and Eren İnci',
-          venue: 'Submitted to Transportation Research Part B: Methodological',
-          note: 'An equilibrium model in which transit serving shopping trips is financed by a fare and a sales tax; shifting revenue from the fare to the tax raises welfare, and the welfare-maximizing fare is zero.',
-        },
-        {
-          kind: 'M.A. thesis',
-          title: 'Optimal Financing of Public Transit',
-          with: 'Advisor: Eren İnci',
-          venue: 'Sabancı University, expected 2027',
-          note: '',
-        },
-      ],
-    },
     cvLabel: 'CV (PDF)',
     emailLabel: 'Email',
     scrollHint: 'Scroll down',
