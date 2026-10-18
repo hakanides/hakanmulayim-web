@@ -1,0 +1,20 @@
+---
+import ProfileIcon from './ProfileIcon.astro';
+import { profile, visibleProfiles } from '../data/profile';
+
+const links = visibleProfiles(profile);
+const year = new Date().getFullYear();
+---
+<footer class="border-t border-gray-200 dark:border-gray-800">
+  <div class="max-w-2xl mx-auto px-5 py-8 flex flex-col items-center gap-4 text-sm">
+    <a href={`mailto:${profile.email}`} class="underline underline-offset-4">{profile.email}</a>
+    {links.length > 0 && (
+      <ul class="flex gap-5">
+        {links.map((l) => (
+          <li><a href={l.url} class="text-gray-600 hover:text-ink dark:text-gray-400 dark:hover:text-white" rel="me noopener" target="_blank"><ProfileIcon name={l.key} /></a></li>
+        ))}
+      </ul>
+    )}
+    <span class="text-gray-500 dark:text-gray-400">© {year} Hakan Mülayim</span>
+  </div>
+</footer>

@@ -1,8 +1,6 @@
 ---
 import Base from '../../layouts/Base.astro';
-import LangToggle from '../LangToggle.astro';
-import ProfileIcon from '../ProfileIcon.astro';
-import { profile, visibleProfiles } from '../../data/profile';
+import { profile } from '../../data/profile';
 import { getAlternatePath } from '../../i18n/routes';
 import type { Lang } from '../../i18n/ui';
 
@@ -10,14 +8,11 @@ interface Props { lang: Lang }
 const { lang } = Astro.props;
 const c = profile[lang];
 const altPath = getAlternatePath(Astro.url.pathname);
-const links = visibleProfiles(profile);
-const year = new Date().getFullYear();
 const heroStyle = profile.heroImage ? `background-image:url('${profile.heroImage}')` : undefined;
 ---
-<Base title="Hakan Mülayim" description={c.description} lang={lang} altPath={altPath}>
+<Base title="Hakan Mülayim" description={c.description} lang={lang} altPath={altPath} overlayHeader>
   <header class="relative min-h-svh flex flex-col items-center justify-center text-center bg-ink bg-cover bg-center text-white px-5" style={heroStyle}>
     {profile.heroImage && <div class="absolute inset-0 bg-black/55" aria-hidden="true"></div>}
-    <LangToggle lang={lang} altPath={altPath} />
     <div class="relative">
       <h1 class="text-5xl sm:text-6xl md:text-7xl font-normal tracking-tight">{profile.name}</h1>
       <p class="mt-5 text-sm sm:text-base text-white/80 max-w-xl mx-auto">{c.tagline}</p>
@@ -47,17 +42,4 @@ const heroStyle = profile.heroImage ? `background-image:url('${profile.heroImage
     )}
   </main>
 
-  <footer class="border-t border-gray-200 dark:border-gray-800">
-    <div class="max-w-2xl mx-auto px-5 py-8 flex flex-col items-center gap-4 text-sm">
-      <a href={`mailto:${profile.email}`} class="underline underline-offset-4">{profile.email}</a>
-      {links.length > 0 && (
-        <ul class="flex gap-5">
-          {links.map((l) => (
-            <li><a href={l.url} class="text-gray-600 hover:text-ink dark:text-gray-400 dark:hover:text-white" rel="me noopener" target="_blank"><ProfileIcon name={l.key} /></a></li>
-          ))}
-        </ul>
-      )}
-      <span class="text-gray-500 dark:text-gray-400">© {year} Hakan Mülayim</span>
-    </div>
-  </footer>
 </Base>

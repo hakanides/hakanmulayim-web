@@ -12,6 +12,12 @@ export interface LangContent {
 export interface Profile {
   name: string;
   email: string;
+  /** Uluslararası format, + ve boşluk olmadan, ör. '905321234567'; boş = düğme yok */
+  whatsappNumber: string;
+  /** ör. 'https://calendly.com/...'; boş = düğme yok */
+  calendlyUrl: string;
+  /** Web3Forms access key; boş = form yok */
+  web3formsKey: string;
   cvPdfUrl: string;      // ör. '/cv/hakan-mulayim-cv.pdf'; boş = düğme yok
   heroImage: string;     // ör. '/img/hero.jpg'; boş = düz koyu zemin
   portrait: string;      // ör. '/img/portrait.jpg'; boş = bölüm yok
@@ -23,7 +29,10 @@ export interface Profile {
 export const profile: Profile = {
   name: 'hakan mülayim',
   email: 'hakan.mulayim@sabanciuniv.edu',
-  cvPdfUrl: '',
+  whatsappNumber: '',
+  calendlyUrl: '',
+  web3formsKey: '',
+  cvPdfUrl: '/cv/hakan-mulayim-cv.pdf',
   heroImage: '/img/hero.jpg',
   portrait: '',
   profiles: { linkedin: '', orcid: '', scholar: '', github: '' },

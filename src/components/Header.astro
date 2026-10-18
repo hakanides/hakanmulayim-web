@@ -1,0 +1,62 @@
+---
+import { useTranslations, type Lang } from '../i18n/ui';
+
+interface Props { lang: Lang; altPath: string; overlay?: boolean }
+const { lang, altPath, overlay = false } = Astro.props;
+const t = useTranslations(lang);
+
+const links: [string, string][] =
+  lang === 'tr'
+    ? [
+        ['/', t('nav.home')],
+        ['/cv', t('nav.cv')],
+        ['/arastirma', t('nav.research')],
+        ['/ogretim', t('nav.teaching')],
+        ['/ders-notlari', t('nav.notes')],
+        ['/blog', t('nav.blog')],
+        ['/etkinlikler', t('nav.events')],
+        ['/iletisim', t('nav.contact')],
+      ]
+    : [
+        ['/en/', t('nav.home')],
+        ['/en/cv', t('nav.cv')],
+        ['/en/research', t('nav.research')],
+        ['/en/teaching', t('nav.teaching')],
+        ['/en/notes', t('nav.notes')],
+        ['/en/blog', t('nav.blog')],
+        ['/en/events', t('nav.events')],
+        ['/en/contact', t('nav.contact')],
+      ];
+const current = Astro.url.pathname.replace(/\/$/, '') || '/';
+const isCurrent = (href: string) => {
+  const h = href.replace(/\/$/, '') || '/';
+  if (h === '/' || h === '/en') return current === h;
+  return current === h || current.startsWith(h + '/');
+};
+
+const wrap = overlay
+  ? 'absolute inset-x-0 top-0 z-10 text-white'
+  : 'border-b border-gray-200 dark:border-gray-800';
+const link = overlay
+  ? 'text-white/80 hover:text-white aria-[current=page]:text-white aria-[current=page]:underline underline-offset-4'
+  : 'text-gray-600 hover:text-ink dark:text-gray-400 dark:hover:text-white aria-[current=page]:text-ink dark:aria-[current=page]:text-white aria-[current=page]:underline underline-offset-4';
+const toggle = overlay
+  ? 'border-white/60 text-white/90 hover:bg-white hover:text-ink'
+  : 'border-gray-400 dark:border-gray-600 hover:bg-ink hover:text-white dark:hover:bg-white dark:hover:text-ink';
+---
+<header class={wrap}>
+  <div class="max-w-3xl mx-auto px-5 py-4 flex flex-wrap items-center gap-x-5 gap-y-2 text-sm">
+    {!overlay && (
+      <a href={lang === 'tr' ? '/' : '/en/'} class="font-serif text-lg mr-auto">hakan mülayim</a>
+    )}
+    <nav class={`flex flex-wrap gap-x-4 gap-y-1 ${overlay ? 'mr-auto' : ''}`} aria-label={lang === 'tr' ? 'Site menüsü' : 'Site menu'}>
+      {links.map(([href, label]) => (
+        <a href={href} aria-current={isCurrent(href) ? 'page' : undefined} class={link}>{label}</a>
+      ))}
+    </nav>
+    <a href={altPath} class={`px-2.5 py-1 text-xs font-medium tracking-wide border transition-colors ${toggle}`}
+      aria-label={lang === 'tr' ? 'Switch to English' : 'Türkçeye geç'}>
+      {lang === 'tr' ? 'EN' : 'TR'}
+    </a>
+  </div>
+</header>
