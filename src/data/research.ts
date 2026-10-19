@@ -13,23 +13,23 @@ export interface ResearchContent {
 
 export const research: Record<Lang, ResearchContent> = {
   tr: {
-    intro: 'Araştırmalarım mikroekonomi teorisi ile ulaşım ve kent ekonomisinin kesişiminde yer alıyor: toplu taşımanın nasıl finanse edilmesi gerektiği, piyasa tasarımı ve kesikli tercih modelleri.',
+    intro: 'Araştırmalarım mikroekonomi teorisi ile ulaşım ve kent ekonomisinin kesişiminde yer alıyor: toplu taşımanın nasıl finanse edilmesi gerektiği, market design ve discrete choice modelleri.',
     interestsHeading: 'İlgi alanları',
-    interests: ['Mikroekonomi teorisi', 'Oyun teorisi', 'Endüstriyel organizasyon', 'Eşleşme ve piyasa tasarımı', 'Ulaşım ve kent ekonomisi'],
+    interests: ['Microeconomic theory', 'Game theory', 'Industrial organization', 'Matching and market design', 'Transportation and urban economics'],
     items: [
       { kind: 'Çalışma kağıdı', title: 'Financing Transit Through Economic Activity', with: 'Kevin Hasker ve Eren İnci ile', venue: '',
         note: 'Alışveriş yolculuklarına hizmet eden toplu taşımanın bilet ücreti ve satış vergisiyle finanse edildiği bir denge modeli geliştirir. Gelirin biletten satış vergisine kaydırılması refahı artırır; refahı en çoklayan bilet ücreti sıfırdır. Sonucu bir sigorta etkisi (bilet, alışveriş yapılsın yapılmasın ödenir; vergi yalnızca alışverişte) sürükler ve ölçek ekonomileri altında katılım etkisi pekiştirir.' },
       { kind: 'Yüksek lisans tezi', title: 'Optimal Financing of Public Transit', with: 'Danışman: Eren İnci', venue: 'Sabancı Üniversitesi, 2027 (beklenen)', note: '' },
       { kind: 'Devam eden proje', title: 'Time vs. Money Under Conscription: A Hybrid Choice Analysis of Turkey’s Paid Military Service', with: 'Dört kişilik ekip, ECON 635 Discrete Choice Methods', venue: 'Sabancı Üniversitesi, Güz 2025',
-        note: 'Altı aylık standart hizmet ile üç haftalık bedelli muafiyet arasındaki tercihi, gizli tutumların zaman ve maliyet duyarlılığını kaydırdığı bir hibrit tercih (ICLV) modeliyle inceleyerek zamanın değerini tahmin etmeyi amaçlar. Tahmin Biogeme (Python) ile sürüyor.' },
+        note: 'Altı aylık standart hizmet ile üç haftalık bedelli muafiyet arasındaki tercihi, gizli tutumların zaman ve maliyet duyarlılığını kaydırdığı bir hybrid choice (ICLV) modeliyle inceleyerek zamanın değerini tahmin etmeyi amaçlar. Tahmin Biogeme (Python) ile sürüyor.' },
     ],
     mathHeading: 'Matematik geçmişi',
-    mathIntro: 'Ekonomiye geçmeden önce düşük boyutlu topoloji ve homolojik yöntemler üzerine çalıştım.',
+    mathIntro: 'Ekonomiye geçmeden önce low-dimensional topology ve homological methods üzerine çalıştım.',
     math: [
       { title: 'Khovanov homology', detail: 'Lisans bitirme projesi (danışman: Mustafa Topkara), Mimar Sinan GSÜ.', period: '2023 – 2024' },
       { title: 'Exotic discs in the 4-ball', detail: 'Directed Reading Program Turkey (mentor: Eylem Zeliha Yıldız, Duke). Konuşma: Bahar Mathematics Meeting, İstanbul Üniversitesi.', period: '2022' },
       { title: 'Okuma seminerleri ve lisansüstü dersler', detail: 'Galatasaray Üniversitesi: persistent homology, Young’s lattices, modular groupoids and braids; Homological Algebra ve Real Algebraic Curves dersleri (dinleyici).', period: '2021 – 2022' },
-      { title: 'Nesin Matematik Köyü', detail: 'Yaz ve kış programlarında burslu öğrenci; Antalya Algebra Days XXII; GGTI çalıştayları (Gökova) ve Young Topologists Meeting (Münster) katılımı.', period: '2017 – 2024' },
+      { title: 'Nesin Matematik Köyü', detail: 'Yaz ve kış programlarında burslu öğrenci; Antalya Algebra Days XXII; GGTI Workshops (Gökova) ve Young Topologists Meeting (Münster) katılımı.', period: '2017 – 2024' },
     ],
   },
   en: {

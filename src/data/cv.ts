@@ -8,7 +8,7 @@ export const cv: Record<Lang, CvContent> = {
   tr: {
     skillsHeading: 'Beceriler',
     skills: [
-      { label: 'Hesaplama', value: 'Python (NumPy, pandas, Biogeme), Stata, MATLAB, LaTeX, Lean 4 (biçimsel doğrulama)' },
+      { label: 'Hesaplama', value: 'Python (NumPy, pandas, Biogeme), Stata, MATLAB, LaTeX, Lean 4 (formal verification)' },
       { label: 'Diller', value: 'Türkçe (ana dil), İngilizce (akıcı), Fransızca (temel)' },
     ],
     sections: [
@@ -25,7 +25,7 @@ export const cv: Record<Lang, CvContent> = {
       {
         heading: 'Araştırma İlgi Alanları',
         entries: [
-          { title: 'Mikroekonomi teorisi; oyun teorisi; endüstriyel organizasyon; eşleşme ve piyasa tasarımı; ulaşım ve kent ekonomisine uygulamalar', org: '', period: '' },
+          { title: 'Microeconomic theory; game theory; industrial organization; matching and market design; applications to transportation and urban economics', org: '', period: '' },
         ],
       },
       {
@@ -34,7 +34,7 @@ export const cv: Record<Lang, CvContent> = {
           { title: '“Financing Transit Through Economic Activity” (Kevin Hasker ve Eren İnci ile)', org: 'Çalışma kağıdı', period: '',
             details: ['Alışveriş yolculuklarına hizmet eden toplu taşımanın bilet ücreti ve satış vergisiyle finanse edildiği bir denge modeli geliştirir; gelirin biletten vergiye kaydırılmasının refahı artırdığını, refahı en çoklayan bilet ücretinin sıfır olduğunu gösterir.'] },
           { title: '“Time vs. Money Under Conscription: A Hybrid Choice Analysis of Turkey’s Paid Military Service”', org: 'Ders projesi (dört kişilik ekip), ECON 635 Discrete Choice Methods, Sabancı Üniversitesi', period: 'Güz 2025',
-            details: ['Altı aylık standart hizmet ile üç haftalık bedelli muafiyet arasındaki tercihi, gizli tutumların zaman ve maliyet duyarlılığını kaydırdığı bir hibrit tercih (ICLV) modeliyle inceleyerek zamanın değerini tahmin etmeyi önerir; Biogeme (Python) ile tahmin devam ediyor.'] },
+            details: ['Altı aylık standart hizmet ile üç haftalık bedelli muafiyet arasındaki tercihi, gizli tutumların zaman ve maliyet duyarlılığını kaydırdığı bir hybrid choice (ICLV) modeliyle inceleyerek zamanın değerini tahmin etmeyi önerir; Biogeme (Python) ile tahmin devam ediyor.'] },
         ],
       },
       {
@@ -64,7 +64,7 @@ export const cv: Record<Lang, CvContent> = {
           { title: 'Tam burs ve barınma desteği, Ekonomi Yüksek Lisansı', org: 'Sabancı Üniversitesi', period: '2024 – 2027' },
           { title: 'Seyahat desteği, Young Topologists Meeting', org: 'Münster Üniversitesi', period: '2024' },
           { title: 'Program desteği', org: 'Directed Reading Program Turkey', period: '2022' },
-          { title: 'Seyahat ve konaklama desteği, GGTI Çalıştayları', org: 'Gökova Geometri–Topoloji Enstitüsü', period: '2021, 2022' },
+          { title: 'Seyahat ve konaklama desteği, GGTI Workshops', org: 'Gökova Geometry–Topology Institute', period: '2021, 2022' },
           { title: 'Tam destek, Antalya Algebra Days XXII', org: 'Nesin Matematik Köyü', period: '2023' },
           { title: 'Burslu öğrenci, yaz ve kış matematik programları', org: 'Nesin Matematik Köyü', period: '2017 – 2024' },
         ],
