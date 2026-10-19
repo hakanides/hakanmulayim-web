@@ -21,8 +21,8 @@ export const teaching: Record<Lang, TeachingContent> = {
     approach: 'Formül ezberi yerine kavramın sezgisel temelini kurmaya, sonra da her sınavın kendi formatının gerektirdiği akıl yürütmeyi çalışmaya dayanır. Matematik ve ekonomiyi birlikte öğretebilmek, özellikle AP/IB ekonomi ve TMUA gibi ispat ağırlıklı sınavlarda fark yaratır.',
     universityHeading: 'Üniversite',
     university: [
-      { course: 'ECON 201 Oyunlar ve Stratejiler', detail: 'Araştırma görevlisi (Eren İnci), Sabancı Üniversitesi', period: 'Bahar 2026' },
-      { course: 'MATH 306 İstatistiksel Modelleme', detail: 'Araştırma görevlisi, üç dönem (E. Aydın, S. O. Sezer, T. Bayraktar), Sabancı Üniversitesi', period: 'Güz 2024 – Güz 2025' },
+      { course: 'ECON 201 Games and Strategies', detail: 'Araştırma görevlisi (Eren İnci), Sabancı Üniversitesi', period: 'Bahar 2026' },
+      { course: 'MATH 306 Statistical Modelling', detail: 'Araştırma görevlisi, üç dönem (E. Aydın, S. O. Sezer, T. Bayraktar), Sabancı Üniversitesi', period: 'Güz 2024 – Güz 2025' },
     ],
     villageHeading: 'Nesin Matematik Köyü',
     village: [

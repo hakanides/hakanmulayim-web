@@ -16,9 +16,9 @@ export const cv: Record<Lang, CvContent> = {
         heading: 'Eğitim',
         entries: [
           { title: 'Ekonomi Yüksek Lisansı (tezli)', org: 'Sabancı Üniversitesi', period: '2024 – Haziran 2027 (beklenen)',
-            details: ['Tez: Optimal Financing of Public Transit (Danışman: Eren İnci)', 'Seçilmiş dersler: Kesikli Tercih Yöntemleri, Eşleşmeler ve Piyasalar, Mikroekonomi I, İleri Makroekonomi'] },
+            details: ['Tez: Optimal Financing of Public Transit (Danışman: Eren İnci)', 'Seçilmiş dersler: Discrete Choice Methods, Matchings and Markets, Microeconomics I, Advanced Macroeconomics'] },
           { title: 'Matematik Lisansı', org: 'Mimar Sinan Güzel Sanatlar Üniversitesi', period: '2021 – 2024',
-            details: ['Seçilmiş dersler: Reel Analiz (İleri Kalkülüs I–II), Lineer Cebir, Soyut Cebir, Kompleks Analiz, Metrik Uzaylar, Cebirsel Topoloji, Diferansiyel Geometri, Olasılık, Stokastik Modelleme'] },
+            details: ['Seçilmiş dersler: Real Analysis (Advanced Calculus I–II), Linear Algebra, Abstract Algebra, Complex Analysis, Metric Spaces, Algebraic Topology, Differential Geometry, Probability, Stochastic Modelling'] },
           { title: 'Matematik dersleri', org: 'İstanbul Bilgi Üniversitesi', period: '2016 – 2021' },
         ],
       },
@@ -33,7 +33,7 @@ export const cv: Record<Lang, CvContent> = {
         entries: [
           { title: '“Financing Transit Through Economic Activity” (Kevin Hasker ve Eren İnci ile)', org: 'Çalışma kağıdı', period: '',
             details: ['Alışveriş yolculuklarına hizmet eden toplu taşımanın bilet ücreti ve satış vergisiyle finanse edildiği bir denge modeli geliştirir; gelirin biletten vergiye kaydırılmasının refahı artırdığını, refahı en çoklayan bilet ücretinin sıfır olduğunu gösterir.'] },
-          { title: '“Time vs. Money Under Conscription: A Hybrid Choice Analysis of Turkey’s Paid Military Service”', org: 'Ders projesi (dört kişilik ekip), ECON 635 Kesikli Tercih Yöntemleri, Sabancı Üniversitesi', period: 'Güz 2025',
+          { title: '“Time vs. Money Under Conscription: A Hybrid Choice Analysis of Turkey’s Paid Military Service”', org: 'Ders projesi (dört kişilik ekip), ECON 635 Discrete Choice Methods, Sabancı Üniversitesi', period: 'Güz 2025',
             details: ['Altı aylık standart hizmet ile üç haftalık bedelli muafiyet arasındaki tercihi, gizli tutumların zaman ve maliyet duyarlılığını kaydırdığı bir hibrit tercih (ICLV) modeliyle inceleyerek zamanın değerini tahmin etmeyi önerir; Biogeme (Python) ile tahmin devam ediyor.'] },
         ],
       },
@@ -41,7 +41,7 @@ export const cv: Record<Lang, CvContent> = {
         heading: 'Öğretim Deneyimi',
         entries: [
           { title: 'Araştırma Görevlisi', org: 'Sabancı Üniversitesi', period: '2024 – 2026',
-            details: ['ECON 201 Oyunlar ve Stratejiler (Eren İnci) — Bahar 2026', 'MATH 306 İstatistiksel Modelleme, üç dönem (E. Aydın, S. O. Sezer, T. Bayraktar) — Güz 2024 – Güz 2025'] },
+            details: ['ECON 201 Games and Strategies (Eren İnci) — Bahar 2026', 'MATH 306 Statistical Modelling, üç dönem (E. Aydın, S. O. Sezer, T. Bayraktar) — Güz 2024 – Güz 2025'] },
           { title: 'Eğitmen, Yaz Programı', org: 'Nesin Matematik Köyü', period: 'Yaz 2026' },
           { title: 'Asistan, Mustafa Yağcı Dönem Programı', org: 'Nesin Matematik Köyü', period: '2020' },
         ],
@@ -49,13 +49,13 @@ export const cv: Record<Lang, CvContent> = {
       {
         heading: 'Matematik Araştırma Deneyimi',
         entries: [
-          { title: 'Bitirme projesi: Khovanov homolojisi', org: 'Danışman: Mustafa Topkara', period: '2023 – 2024' },
-          { title: 'Directed Reading Program Turkey: 4-topta egzotik diskler', org: 'Mentor: Eylem Zeliha Yıldız (Duke)', period: '2022',
-            details: ['Konuşma: Bahar Matematik Buluşması, İstanbul Üniversitesi — Ekim 2022'] },
+          { title: 'Bitirme projesi: Khovanov homology', org: 'Danışman: Mustafa Topkara', period: '2023 – 2024' },
+          { title: 'Directed Reading Program Turkey: exotic discs in the 4-ball', org: 'Mentor: Eylem Zeliha Yıldız (Duke)', period: '2022',
+            details: ['Konuşma: Bahar Mathematics Meeting, İstanbul Üniversitesi — Ekim 2022'] },
           { title: 'Okuma seminerleri', org: 'Galatasaray Üniversitesi', period: '2021 – 2022',
-            details: ['Kalıcı homoloji (Serap Gürer), Young örgüleri (Meral Tosun), modüler grupoidler ve örgüler (Ayberk Zeytin)'] },
+            details: ['Persistent homology (Serap Gürer), Young’s lattices (Meral Tosun), modular groupoids and braids (Ayberk Zeytin)'] },
           { title: 'Dinleyici olarak lisansüstü dersler', org: 'Galatasaray Üniversitesi', period: 'Bahar 2022',
-            details: ['MATH 509 Homolojik Cebir (Serap Gürer), MATH 532 Reel Cebirsel Eğriler (Meral Tosun)'] },
+            details: ['MATH 509 Homological Algebra (Serap Gürer), MATH 532 Real Algebraic Curves (Meral Tosun)'] },
         ],
       },
       {
@@ -65,7 +65,7 @@ export const cv: Record<Lang, CvContent> = {
           { title: 'Seyahat desteği, Young Topologists Meeting', org: 'Münster Üniversitesi', period: '2024' },
           { title: 'Program desteği', org: 'Directed Reading Program Turkey', period: '2022' },
           { title: 'Seyahat ve konaklama desteği, GGTI Çalıştayları', org: 'Gökova Geometri–Topoloji Enstitüsü', period: '2021, 2022' },
-          { title: 'Tam destek, Antalya Cebir Günleri XXII', org: 'Nesin Matematik Köyü', period: '2023' },
+          { title: 'Tam destek, Antalya Algebra Days XXII', org: 'Nesin Matematik Köyü', period: '2023' },
           { title: 'Burslu öğrenci, yaz ve kış matematik programları', org: 'Nesin Matematik Köyü', period: '2017 – 2024' },
         ],
       },
