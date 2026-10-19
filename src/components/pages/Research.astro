@@ -22,7 +22,7 @@ const r = research[lang];
         <li>
           <p class="text-xs uppercase tracking-wider text-gray-500 dark:text-gray-400">{it.kind}</p>
           <p class="mt-1 font-serif text-xl">{it.title}</p>
-          <p class="text-sm text-gray-600 dark:text-gray-300">{it.with} · {it.venue}</p>
+          <p class="text-sm text-gray-600 dark:text-gray-300">{[it.with, it.venue].filter(Boolean).join(' · ')}</p>
           {it.note && <p class="mt-2 text-sm leading-relaxed text-gray-700 dark:text-gray-300">{it.note}</p>}
           {it.pdf && <a href={it.pdf} class="inline-block mt-2 text-sm underline underline-offset-4">PDF</a>}
         </li>

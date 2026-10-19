@@ -1,20 +1,31 @@
 ---
 import ProfileIcon from './ProfileIcon.astro';
 import { profile, visibleProfiles } from '../data/profile';
+import { getLangFromUrl } from '../i18n/ui';
 
+const lang = getLangFromUrl(Astro.url);
+const c = profile[lang];
 const links = visibleProfiles(profile);
 const year = new Date().getFullYear();
 ---
-<footer class="border-t border-gray-200 dark:border-gray-800">
-  <div class="max-w-2xl mx-auto px-5 py-8 flex flex-col items-center gap-4 text-sm">
-    <a href={`mailto:${profile.email}`} class="underline underline-offset-4">{profile.email}</a>
-    {links.length > 0 && (
-      <ul class="flex gap-5">
-        {links.map((l) => (
-          <li><a href={l.url} class="text-gray-600 hover:text-ink dark:text-gray-400 dark:hover:text-white" rel="me noopener" target="_blank"><ProfileIcon name={l.key} /></a></li>
-        ))}
-      </ul>
-    )}
-    <span class="text-gray-500 dark:text-gray-400">© {year} Hakan Mülayim</span>
+<footer class="mt-auto bg-ink text-white border-t border-white/10">
+  <div class="max-w-5xl mx-auto px-5 py-12 grid gap-8 sm:grid-cols-[1fr_auto] sm:items-end">
+    <div>
+      <p class="font-serif text-2xl tracking-tight">hakan mülayim</p>
+      <p class="mt-2 max-w-md text-sm text-white/60 leading-relaxed">{c.tagline}</p>
+    </div>
+    <div class="sm:text-right">
+      <a href={`mailto:${profile.email}`} class="text-sm underline underline-offset-4 decoration-white/40 hover:decoration-white">{profile.email}</a>
+      {links.length > 0 && (
+        <ul class="mt-3 flex gap-4 sm:justify-end">
+          {links.map((l) => (
+            <li><a href={l.url} class="text-white/60 hover:text-white" rel="me noopener" target="_blank"><ProfileIcon name={l.key} /></a></li>
+          ))}
+        </ul>
+      )}
+    </div>
+  </div>
+  <div class="border-t border-white/10">
+    <p class="max-w-5xl mx-auto px-5 py-4 text-xs text-white/40">© {year} Hakan Mülayim</p>
   </div>
 </footer>

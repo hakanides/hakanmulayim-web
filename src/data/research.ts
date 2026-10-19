@@ -17,10 +17,10 @@ export const research: Record<Lang, ResearchContent> = {
     interestsHeading: 'İlgi alanları',
     interests: ['Mikroekonomi teorisi', 'Oyun teorisi', 'Endüstriyel organizasyon', 'Eşleşme ve piyasa tasarımı', 'Ulaşım ve kent ekonomisi'],
     items: [
-      { kind: 'Çalışma kağıdı', title: 'Financing Transit Through Economic Activity', with: 'Kevin Hasker ve Eren İnci ile', venue: 'Transportation Research Part B: Methodological dergisine sunuldu',
+      { kind: 'Çalışma kağıdı', title: 'Financing Transit Through Economic Activity', with: 'Kevin Hasker ve Eren İnci ile', venue: '',
         note: 'Alışveriş yolculuklarına hizmet eden toplu taşımanın bilet ücreti ve satış vergisiyle finanse edildiği bir denge modeli geliştirir. Gelirin biletten satış vergisine kaydırılması refahı artırır; refahı en çoklayan bilet ücreti sıfırdır. Sonucu bir sigorta etkisi (bilet, alışveriş yapılsın yapılmasın ödenir; vergi yalnızca alışverişte) sürükler ve ölçek ekonomileri altında katılım etkisi pekiştirir.' },
-      { kind: 'Yüksek lisans tezi', title: 'Toplu Taşımanın Optimal Finansmanı', with: 'Danışman: Eren İnci', venue: 'Sabancı Üniversitesi, 2027 (beklenen)', note: '' },
-      { kind: 'Devam eden proje', title: 'Zorunlu Askerlikte Zaman ve Para: Türkiye’de Bedelli Askerliğin Hibrit Tercih Analizi', with: 'Dört kişilik ekip, ECON 635 Kesikli Tercih Yöntemleri', venue: 'Sabancı Üniversitesi, Güz 2025',
+      { kind: 'Yüksek lisans tezi', title: 'Optimal Financing of Public Transit', with: 'Danışman: Eren İnci', venue: 'Sabancı Üniversitesi, 2027 (beklenen)', note: '' },
+      { kind: 'Devam eden proje', title: 'Time vs. Money Under Conscription: A Hybrid Choice Analysis of Turkey’s Paid Military Service', with: 'Dört kişilik ekip, ECON 635 Kesikli Tercih Yöntemleri', venue: 'Sabancı Üniversitesi, Güz 2025',
         note: 'Altı aylık standart hizmet ile üç haftalık bedelli muafiyet arasındaki tercihi, gizli tutumların zaman ve maliyet duyarlılığını kaydırdığı bir hibrit tercih (ICLV) modeliyle inceleyerek zamanın değerini tahmin etmeyi amaçlar. Tahmin Biogeme (Python) ile sürüyor.' },
     ],
     mathHeading: 'Matematik geçmişi',
@@ -37,7 +37,7 @@ export const research: Record<Lang, ResearchContent> = {
     interestsHeading: 'Interests',
     interests: ['Microeconomic theory', 'Game theory', 'Industrial organization', 'Matching and market design', 'Transportation and urban economics'],
     items: [
-      { kind: 'Working paper', title: 'Financing Transit Through Economic Activity', with: 'with Kevin Hasker and Eren İnci', venue: 'Submitted to Transportation Research Part B: Methodological',
+      { kind: 'Working paper', title: 'Financing Transit Through Economic Activity', with: 'with Kevin Hasker and Eren İnci', venue: '',
         note: 'Develops an equilibrium model in which transit serving shopping trips is financed by a fare and a sales tax. Shifting revenue from the fare to the sales tax raises welfare; the welfare-maximizing fare is zero. The result is driven by an insurance effect (the fare is paid regardless of whether a purchase occurs, the tax only upon purchase) and reinforced by a participation effect under economies of scale.' },
       { kind: 'M.A. thesis', title: 'Optimal Financing of Public Transit', with: 'Advisor: Eren İnci', venue: 'Sabancı University, expected 2027', note: '' },
       { kind: 'Ongoing project', title: 'Time vs. Money Under Conscription: A Hybrid Choice Analysis of Turkey’s Paid Military Service', with: 'Team of four, ECON 635 Discrete Choice Methods', venue: 'Sabancı University, Fall 2025',

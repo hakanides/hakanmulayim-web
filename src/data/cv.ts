@@ -16,7 +16,7 @@ export const cv: Record<Lang, CvContent> = {
         heading: 'Eğitim',
         entries: [
           { title: 'Ekonomi Yüksek Lisansı (tezli)', org: 'Sabancı Üniversitesi', period: '2024 – Haziran 2027 (beklenen)',
-            details: ['Tez: Toplu Taşımanın Optimal Finansmanı (Danışman: Eren İnci)', 'Seçilmiş dersler: Kesikli Tercih Yöntemleri, Eşleşmeler ve Piyasalar, Mikroekonomi I, İleri Makroekonomi'] },
+            details: ['Tez: Optimal Financing of Public Transit (Danışman: Eren İnci)', 'Seçilmiş dersler: Kesikli Tercih Yöntemleri, Eşleşmeler ve Piyasalar, Mikroekonomi I, İleri Makroekonomi'] },
           { title: 'Matematik Lisansı', org: 'Mimar Sinan Güzel Sanatlar Üniversitesi', period: '2021 – 2024',
             details: ['Seçilmiş dersler: Reel Analiz (İleri Kalkülüs I–II), Lineer Cebir, Soyut Cebir, Kompleks Analiz, Metrik Uzaylar, Cebirsel Topoloji, Diferansiyel Geometri, Olasılık, Stokastik Modelleme'] },
           { title: 'Matematik dersleri', org: 'İstanbul Bilgi Üniversitesi', period: '2016 – 2021' },
@@ -31,9 +31,9 @@ export const cv: Record<Lang, CvContent> = {
       {
         heading: 'Araştırma',
         entries: [
-          { title: '“Financing Transit Through Economic Activity” (Kevin Hasker ve Eren İnci ile)', org: 'Çalışma kağıdı — Transportation Research Part B: Methodological dergisine sunuldu', period: '',
+          { title: '“Financing Transit Through Economic Activity” (Kevin Hasker ve Eren İnci ile)', org: 'Çalışma kağıdı', period: '',
             details: ['Alışveriş yolculuklarına hizmet eden toplu taşımanın bilet ücreti ve satış vergisiyle finanse edildiği bir denge modeli geliştirir; gelirin biletten vergiye kaydırılmasının refahı artırdığını, refahı en çoklayan bilet ücretinin sıfır olduğunu gösterir.'] },
-          { title: '“Zorunlu Askerlikte Zaman ve Para: Türkiye’de Bedelli Askerliğin Hibrit Tercih Analizi”', org: 'Ders projesi (dört kişilik ekip), ECON 635 Kesikli Tercih Yöntemleri, Sabancı Üniversitesi', period: 'Güz 2025',
+          { title: '“Time vs. Money Under Conscription: A Hybrid Choice Analysis of Turkey’s Paid Military Service”', org: 'Ders projesi (dört kişilik ekip), ECON 635 Kesikli Tercih Yöntemleri, Sabancı Üniversitesi', period: 'Güz 2025',
             details: ['Altı aylık standart hizmet ile üç haftalık bedelli muafiyet arasındaki tercihi, gizli tutumların zaman ve maliyet duyarlılığını kaydırdığı bir hibrit tercih (ICLV) modeliyle inceleyerek zamanın değerini tahmin etmeyi önerir; Biogeme (Python) ile tahmin devam ediyor.'] },
         ],
       },
@@ -97,7 +97,7 @@ export const cv: Record<Lang, CvContent> = {
       {
         heading: 'Research',
         entries: [
-          { title: '“Financing Transit Through Economic Activity” (with Kevin Hasker and Eren İnci)', org: 'Working paper — submitted to Transportation Research Part B: Methodological', period: '',
+          { title: '“Financing Transit Through Economic Activity” (with Kevin Hasker and Eren İnci)', org: 'Working paper', period: '',
             details: ['Develops an equilibrium model in which transit serving shopping trips is financed by a fare and a sales tax, and shows that shifting revenue from the fare to the sales tax raises welfare; the welfare-maximizing fare is zero.'] },
           { title: '“Time vs. Money Under Conscription: A Hybrid Choice Analysis of Turkey’s Paid Military Service”', org: 'Course project (team of four), ECON 635 Discrete Choice Methods, Sabancı University', period: 'Fall 2025',
             details: ['Proposes a hybrid choice (ICLV) specification of the choice between six-month standard service and a three-week paid exemption to estimate the value of time, with latent attitudes shifting time and cost sensitivities; estimation in Biogeme (Python) in progress.'] },
