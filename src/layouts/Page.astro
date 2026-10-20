@@ -12,13 +12,21 @@ interface Props {
   intro?: string;
   /** Başlığın üstünde küçük büyük harfli satır (ör. kategori · tarih) */
   eyebrow?: string;
+  /** Sayfaya özel banner görseli; verilmezse ana sayfa hero görseli kullanılır */
+  banner?: string;
+  /** CSS background-position (ör. 'center top'); varsayılan 'center' */
+  bannerPosition?: string;
+  /** Koyu kaplama yoğunluğu 0–1; koyu fotoğraflarda düşürün. Varsayılan 0.6 */
+  bannerOverlay?: number;
 }
-const { title, description, lang, altPath, intro, eyebrow } = Astro.props;
-const bannerStyle = profile.heroImage ? `background-image:url('${profile.heroImage}')` : undefined;
+const { title, description, lang, altPath, intro, eyebrow, banner, bannerPosition = 'center', bannerOverlay = 0.6 } = Astro.props;
+const image = banner || profile.heroImage;
+const bannerStyle = image ? `background-image:url('${image}');background-position:${bannerPosition}` : undefined;
 ---
 <Base title={title} description={description} lang={lang} altPath={altPath}>
-  <section class="relative bg-ink bg-cover bg-center text-white" style={bannerStyle}>
-    {profile.heroImage && <div class="absolute inset-0 bg-black/60" aria-hidden="true"></div>}
+  <section class="relative bg-ink bg-cover text-white" style={bannerStyle}>
+    {image && <div class="absolute inset-0 bg-black" style={`opacity:${bannerOverlay}`} aria-hidden="true"></div>}
+    <div class="absolute inset-x-0 top-0 h-28 bg-gradient-to-b from-black/60 to-transparent" aria-hidden="true"></div>
     <div class="relative max-w-2xl mx-auto px-5 pt-44 pb-14 sm:pt-40 sm:pb-20">
       {eyebrow && <p class="text-xs uppercase tracking-widest text-white/70">{eyebrow}</p>}
       <h1 class="mt-2 text-4xl sm:text-5xl tracking-tight">{title}</h1>
