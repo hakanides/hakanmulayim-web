@@ -9,7 +9,7 @@ const t = useTranslations(lang);
 const btn = 'inline-block px-4 py-2 border border-ink dark:border-gray-100 text-sm font-medium hover:bg-ink hover:text-white dark:hover:bg-gray-100 dark:hover:text-ink transition-colors';
 const inputCls = 'w-full border border-gray-300 dark:border-gray-700 bg-transparent px-3 py-2 text-sm focus:outline-none focus:border-ink dark:focus:border-white';
 ---
-<Page title={t('contact.title')} description={t('contact.intro')} lang={lang} intro={t('contact.intro')} banner="/img/banner-contact.jpg" bannerPosition="center 22%" bannerOverlay={0.3}>
+<Page title={t('contact.title')} description={t('contact.intro')} lang={lang} intro={t('contact.intro')} banner="/img/banner-contact.jpg" bannerPosition="center 30%" bannerOverlay={0.3}>
   <div class="mt-8 flex flex-wrap gap-3">
     <a href={`mailto:${profile.email}`} class={btn}>{t('contact.email')}: {profile.email}</a>
     {profile.whatsappNumber && <a href={`https://wa.me/${profile.whatsappNumber}`} class={btn}>{t('contact.whatsapp')}</a>}
