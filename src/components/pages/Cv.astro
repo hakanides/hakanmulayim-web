@@ -9,7 +9,7 @@ const { lang } = Astro.props;
 const t = useTranslations(lang);
 const c = cv[lang];
 ---
-<Page title={t('cv.title')} description={t('site.description')} lang={lang}>
+<Page title={t('cv.title')} description={t('site.description')} lang={lang} banner="/img/banner-cv.jpg" bannerPosition="center 48%" bannerOverlay={0.4}>
   {profile.cvPdfUrl && (
     <a href={profile.cvPdfUrl} class="inline-block mt-5 px-4 py-2 border border-ink dark:border-gray-100 text-sm font-medium hover:bg-ink hover:text-white dark:hover:bg-gray-100 dark:hover:text-ink transition-colors">
       {t('cv.download')}
