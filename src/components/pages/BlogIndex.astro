@@ -12,7 +12,7 @@ const posts = sortByDateDesc(
   byLocale(await getCollection('blog', ({ data }) => !data.draft), lang)
 );
 ---
-<Page title={t('blog.title')} description={t('blog.intro')} lang={lang} intro={t('blog.intro')} banner="/img/banner-blog.jpg" bannerPosition="center 82%" bannerOverlay={0.5}>
+<Page title={t('blog.title')} description={t('blog.intro')} lang={lang} intro={t('blog.intro')} banner="/img/banner-blog.jpg" bannerPosition="center 45%" bannerOverlay={0.5}>
   <div class="mt-4">
     {posts.length === 0 && <p class="text-gray-500">{t('blog.empty')}</p>}
     {posts.map((entry) => <PostCard entry={entry} lang={lang} />)}
