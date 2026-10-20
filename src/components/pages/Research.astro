@@ -8,7 +8,7 @@ const { lang } = Astro.props;
 const t = useTranslations(lang);
 const r = research[lang];
 ---
-<Page title={t('research.title')} description={r.intro} lang={lang} intro={r.intro}>
+<Page title={t('research.title')} description={r.intro} lang={lang} intro={r.intro} banner="/img/banner-research.jpg" bannerPosition="center 45%" bannerOverlay={0.62}>
   <section class="mt-8">
     <h2 class="text-xs uppercase tracking-wider text-gray-500 dark:text-gray-400">{r.interestsHeading}</h2>
     <ul class="mt-2 flex flex-wrap gap-2">
