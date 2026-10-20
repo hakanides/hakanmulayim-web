@@ -24,10 +24,10 @@ const image = banner || profile.heroImage;
 const bannerStyle = image ? `background-image:url('${image}');background-position:${bannerPosition}` : undefined;
 ---
 <Base title={title} description={description} lang={lang} altPath={altPath}>
-  <section class="relative bg-ink bg-cover text-white" style={bannerStyle}>
+  <section class="relative bg-ink bg-cover text-white lg:flex lg:items-center lg:min-h-[30vw]" style={bannerStyle}>
     {image && <div class="absolute inset-0 bg-black" style={`opacity:${bannerOverlay}`} aria-hidden="true"></div>}
     <div class="absolute inset-x-0 top-0 h-28 bg-gradient-to-b from-black/60 to-transparent" aria-hidden="true"></div>
-    <div class="relative max-w-2xl mx-auto px-5 pt-44 pb-14 sm:pt-40 sm:pb-20 lg:pt-56 lg:pb-28">
+    <div class="relative w-full max-w-2xl mx-auto px-5 pt-44 pb-14 sm:pt-40 sm:pb-20 lg:pt-32 lg:pb-16">
       {eyebrow && <p class="text-xs uppercase tracking-widest text-white/70">{eyebrow}</p>}
       <h1 class="mt-2 text-4xl sm:text-5xl tracking-tight">{title}</h1>
       {intro && <p class="mt-4 max-w-xl text-white/80 leading-relaxed">{intro}</p>}
