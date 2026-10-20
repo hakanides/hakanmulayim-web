@@ -12,7 +12,7 @@ const { Content } = await render(entry);
 const backHref = lang === 'tr' ? '/blog' : '/en/blog';
 const eyebrow = [formatDate(entry.data.date, lang), ...entry.data.tags].join(' · ');
 ---
-<Page title={entry.data.title} description={entry.data.description} lang={lang} altPath={altPath} intro={entry.data.description} eyebrow={eyebrow}>
+<Page title={entry.data.title} description={entry.data.description} lang={lang} altPath={altPath} intro={entry.data.description} eyebrow={eyebrow} banner="/img/banner-blog.jpg" bannerPosition="center 82%" bannerOverlay={0.5}>
   <a href={backHref} class="text-sm underline underline-offset-4">← {t('blog.title')}</a>
   <div class="prose-body mt-8">
     <Content />
