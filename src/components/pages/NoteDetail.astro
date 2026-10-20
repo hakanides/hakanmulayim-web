@@ -13,7 +13,7 @@ const backHref = lang === 'tr' ? '/ders-notlari' : '/en/notes';
 const eyebrow = `${entry.data.category} · ${formatDate(entry.data.date, lang)}`;
 const btn = 'inline-block px-4 py-2 border border-ink dark:border-gray-100 text-sm font-medium hover:bg-ink hover:text-white dark:hover:bg-gray-100 dark:hover:text-ink transition-colors';
 ---
-<Page title={entry.data.title} description={entry.data.description} lang={lang} altPath={altPath} intro={entry.data.description} eyebrow={eyebrow}>
+<Page title={entry.data.title} description={entry.data.description} lang={lang} altPath={altPath} intro={entry.data.description} eyebrow={eyebrow} banner="/img/banner-notes.jpg" bannerPosition="center 62%" bannerOverlay={0.35}>
   <div class="flex flex-wrap items-center gap-4">
     <a href={backHref} class="text-sm underline underline-offset-4">← {t('notes.title')}</a>
     {entry.data.pdf && <a href={entry.data.pdf} download class={btn}>{t('notes.download')}</a>}

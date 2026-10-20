@@ -14,7 +14,7 @@ const notes = sortByDateDesc(
   byLocale(await getCollection('notes', ({ data }) => !data.draft), lang)
 );
 ---
-<Page title={t('notes.title')} description={t('notes.intro')} lang={lang} intro={t('notes.intro')}>
+<Page title={t('notes.title')} description={t('notes.intro')} lang={lang} intro={t('notes.intro')} banner="/img/banner-notes.jpg" bannerPosition="center 62%" bannerOverlay={0.35}>
 
   <div class="mt-6 flex flex-wrap gap-2" role="group" aria-label={lang === 'tr' ? 'Kategori filtresi' : 'Category filter'}>
     <button data-filter="all" aria-pressed="true"
